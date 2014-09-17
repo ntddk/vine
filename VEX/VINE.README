@@ -1,0 +1,1 @@
+This is VEX version 1856 (per priv/main/vex_svnversion.h) with orig_amd64/, orig_arm/, orig_ppc32/, orig_x86/, test/, and nanoarm.orig removed. -fPIC compiler option is also added to the Makefile.

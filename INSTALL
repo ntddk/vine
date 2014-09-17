@@ -1,0 +1,9 @@
+Vine uses Automake and Autoconf, so it can be compiled using the
+standard:
+
+% ./configure
+% make
+
+However, a fairly large number of prerequisite packages are required.
+For more details, see doc/install-vine-release.sh or Section 2
+("Installation") of the Vine user manual.

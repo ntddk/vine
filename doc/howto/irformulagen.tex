@@ -1,0 +1,80 @@
+\subsection {Generating the IL and the STP formula}
+
+We start with a trace (generated, for instance, by TEMU) that records
+the instructions executed on a program run, the data values they
+operated on, and which data values were derived from a distinguished
+set of (``tainted'') input values. We're going to do operations where
+we consider that input to be a symbolic variable, but the first step
+is to interpret the trace. The x86 instructions in the trace are a
+pretty obscure representation of what is actually happening in the
+program, so we'll translate them into a cleaner intermediate language
+(IL, abbreviated IR in command options).
+
+First, let us check if we have got a meaningful trace.  One way to do
+so is to print the trace, and see that at least the expected
+instructions are marked as tainted.  For this, you may use the
+\texttt{trace\_reader} command utility in Vine. As shown below, in the
+output you should be able to see the compare instruction
+that comapares the input to the immediate value 5. The presence of
+tainted operands in any instruction are indicated by the record
+containing ``T1''.
+
+\begin{Verbatim}[frame=lines, framesep=.5em]
+
+% cd bitblaze/vine
+% ./trace_utils/trace_reader -trace examples/five.trace | grep T1
+...
+...
+804845a:       cmpl    $0x5,-0x4(%ebp)   I@0x00000000[0x00000005] \
+       T0      M@0xbffffac4[0x00000005]        T1 {15 (1001, 0) (1001, 0) \
+	 (1001, 0) (1001, 0) } 
+
+\end{Verbatim}
+%$
+
+Of course, the real output of that command contains many of
+instructions, but we've picked out a key one: an instruction from the
+main program (you can tell because the address is in the \verb'0x08000000'
+range) in which a value from the stack (\verb'-0x4(%ebp)') is
+compared (a \verb'cmpl' instruction) with a constant integer 5
+(\verb'$0x5').%$
+The later fields on the line represent the instruction operands and
+their tainting.
+
+We can then use the \texttt{appreplay} utility to
+both convert the trace into IL for and then to generate an STP formula
+given the constraints on the symbolic input. The invocation looks
+like:
+\begin{Verbatim}[frame=lines, framesep=.5em]
+% ./trace_utils/appreplay -trace examples/five.trace \
+  -stp-out five.stp -ir-out five.il -wp-out five.wp
+...
+Time to create sym constraint from TM: 0.288464
+\end{Verbatim}
+
+This command line produces the final STP file as \verb'foo.stp', and
+the intermediate files \verb'foo.il' and \verb'foo.wp' to demonstrate
+the steps of the processing.
+Remember that Vine
+uses its own IL to model the semantics of instructions in a
+simpler RISC-like form.  The IL and WP output files are in this IL
+language. If you aren't interested in these files, you can omit the
+\verb'-ir-out' and \verb'-wp-out' options.
+You can learn about other options that may be supplied to {\tt
+appreplay} in Section~\ref {sec:utils}.
+
+In essence, \texttt{appreplay} models the logic of the executed
+instructions, generating a path constraint needed to force the
+execution down the path taken in the trace.  A variable \verb'post' is
+introduced, which is the conjunction of the conditions seen along the
+path. In the file \verb'foo.il', you can see this variable is assigned
+at each conditional branch point as $post = post \wedge condition$,
+where a condition is a variable modeling the compare operation's
+result that must be true to force execution to continue along the path
+taken. (Because the language is explicitly typed and \verb'appreplay'
+is careful to generate unique names, the full name of the \verb'post'
+variable is likely something like \verb'post_1034:reg1_t', where the
+part after the colon tells you it's a one-bit (boolean) variable.)
+
+This weakest precondition formula is then converted to the format of
+the STP solver's input.

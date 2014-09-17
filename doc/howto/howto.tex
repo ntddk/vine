@@ -1,0 +1,597 @@
+\documentclass[11pt,onecolumn]{article}
+\usepackage{fancyvrb}
+\usepackage{relsize}
+\usepackage{fullpage}
+\usepackage{amsmath} % for \text; HeVeA doesn't know about amstext
+\usepackage{latexsym} % for \Diamond
+\usepackage{hevea}
+\usepackage{comment}
+\usepackage[dvips]{graphicx}       %%% graphics for dvips
+\usepackage[colorlinks=true, linkcolor=blue, 
+  citecolor=blue, urlcolor=blue,
+  ps2pdf,                %%% hyper-references for ps2pdf
+  bookmarks=true,        %%% generate bookmarks ...
+  bookmarksnumbered=true,%%% ... with numbers
+]{hyperref}
+% pdfcreator and pdfproducer are set automatically in pdfLaTeX
+\hypersetup{ pdfcreator  = {LaTeX with hyperref package},
+  pdfproducer = {dvips + ps2pdf} }
+\begin{latexonly}
+% HeVeA can't handle this:
+\let\url\nolinkurl % because dvips cannot break url across lines
+\end{latexonly}
+%\usepackage{times}
+
+%\includecomment{svn}
+%\excludecomment{release}
+\includecomment{release}
+\excludecomment{svn}
+
+\begin{svn}
+\newcommand{\sreither}[2]{#1}
+\end{svn}
+\begin{release}
+\newcommand{\sreither}[2]{#2}
+\end{release}
+
+% Make \_ be CMTT's underscore, not \textunderscore, since we use
+% it in code and command names.
+\def\_{\char"5F}
+\newcommand{\todo}[1]{\textbf{[[#1]]}}
+\newcommand{\mytt}{\small \tt}
+
+\newcommand{\titled}{Vine installation and user manual}
+\title{\mbox{}\\[-.8in]\bf \titled}
+\author{BitBlaze Team}
+\date{August 26th, 2009:
+\sreither{SVN trunk r4183}{Release 1.0}
+and Ubuntu 9.04}
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+
+This document is a guide for setting up and running Vine, the static
+analysis component of the BitBlaze Binary Analysis Framework. It
+assumes that you have some familiarity with Linux.  The instructions
+are based on
+\begin{svn}
+the version of Vine in the SVN trunk as of the date shown
+in the header,
+\end{svn}
+\begin{release}
+the release of Vine mentioned in the header,
+\end{release}
+running on a vanilla Ubuntu 9.04 distribution of Linux.
+It includes details about how to install Vine, and then walks through
+a simple usage example intermixed with explanations about the tools
+used.
+
+The example takes a trace from a simple program with symbolic keyboard
+input, and generates an STP file which models the weakest precondition
+of the control-flow path the program took. In other words, the
+conditions on the inputs that cause it to take a execute a certain
+path of code. The trace file was generated using TEMU, the dynamic
+component of the BitBlaze Binary Analysis Framework, but it is
+included in the {\tt examples} directory of the Vine distribution so
+you can try out the tool without using TEMU.
+
+\section {\label{sec:install}Installation}
+
+Vine is written using a combination of OCaml and C++, and distributed
+in source code form.
+%
+Therefore the main steps in installing it are installing the
+prerequisite software it requires, and then compiling the source code.
+%
+To install prerequisite software, we recommend that you use a recent
+version of Ubuntu Linux, for which we have verified that all the
+needed packages are already available.
+%
+The compilation is performed automatically using {\tt configure} and
+{\tt Makefile} scripts like many other Linux applications.
+%
+The following subsections cover these tasks in more detail, and then
+we finish by giving complete listing of the commands needed for our
+recommended platform.
+
+\subsection{\label{sec:prereqs}Prerequisites}
+
+Our recommended platform for using Vine is a 32-bit x86 version of
+Ubuntu Linux, version 9.04 (code named ``Jaunty Jackalope''); we used
+such a system in preparing these instructions.
+%
+The needed packages all also exist in Debian Linux, so the process
+there should work in almost the same way.
+%
+It is possible to use Vine with other Linux distributions, but you may
+need to compile some of the prerequisite software from source.
+%
+The pure OCaml parts of Vine also work fine on 64-bit x86-64 Linux
+platforms, but the library it uses for the semantics of x86
+instructions expects to run on a 32-bit platform when processing
+32-bit code, so a 32-bit platform is needed to make complete use of
+Vine.
+%
+If you are using an x86-64 version of Ubuntu or Debian, we recommend
+installing a parallel 32-bit version of your OS packages using a
+mechanism called a ``chroot'', but how to do so is beyond the scope of
+this manual (or you could use another kind of virtual machine).
+
+If you don't have any of the prerequisites already installed, they
+will require about 300MB to download, and take up about 1.1GB of disk
+space once installed.
+%
+A build of Vine itself requires about 320MB.
+
+\begin{svn}
+\subsubsection{Subversion}
+
+Both the development versions of Vine itself and the VEX library we
+use are maintained using the Subversion version control system, so
+you'll need it to download them. In Ubuntu 9.04, version 1.5.4 is
+available in the package {\tt subversion}.
+\end{svn}
+
+\begin{svn}
+\subsubsection{Autoconf and Automake}
+
+If you are building from the SVN development version of Vine, you will
+need to regenerate the {\tt configure} and {\tt Makefile.in} files
+needed by the compile using the automake and autoconf tools. In Ubuntu
+9.04, you can get suitable versions of both (Automake 1.10.2 and
+Autoconf 2.63) by requesting the {\tt automake} package.
+\end{svn}
+
+\subsubsection{C++ compiler}
+
+For compiling the C++ code in Vine, we recommend the G++ compiler from
+GCC which is standard on Linux; the default version in Ubuntu 9.04 is
+4.3.3, and the package name is {\tt g++}.
+
+\subsubsection{\label{sec:vex}The VEX library}
+
+Vine uses the VEX library (which is also used by Valgrind) to get
+information about the behavior of x86 instructions.
+%
+The current version of Vine is designed to work with SVN revision
+r1856 of VEX, which is maintained in the Valgrind SVN repository at
+\url{svn://svn.valgrind.org/vex/trunk}.
+%
+\begin{svn}%
+You can check it out into a directory named {\tt vex} using the
+following command:
+
+\begin{Verbatim}[frame=lines, framesep=.5em]
+svn checkout -r1856 svn://svn.valgrind.org/vex/trunk vex
+\end{Verbatim}
+
+Then, to compile it, run the following commands in the {\tt vex}
+directory:
+
+\begin{Verbatim}[frame=lines, framesep=.5em]
+make version
+make libvex_x86_linux.a
+make libvex.a
+\end{Verbatim}
+\end{svn}
+\begin{release}
+For your convenience, we have included an appropriate version of VEX
+with the release, and it will be compiled automatically.
+\end{release}
+
+\subsubsection{STP}
+
+Vine interfaces with STP, a satisfiability-modulo-theories (SMT)
+decision procedure for bit vector (bounded integer) arithmetic and
+arrays.
+%
+Vine can either interact directly with the prover through a
+programmatic interface, or it can produce formulas in STP's text
+format.
+%
+The directory {\tt stp} contains x86 and x86-64 binaries for a version
+of STP we have tested to work well with Vine.
+%
+If you would like to use a different version of STP, it is available
+in source form at
+\url{http://people.csail.mit.edu/vganesh/STP_files/stp.html}.
+
+\subsubsection{Binutils libraries}
+
+Vine uses the GNU BFD (Binary File Descriptor) library and related
+libraries from the GNU Binutils to parse the structure of executables,
+and for human-readable dissassembly. On Ubuntu they are distributed in
+a package named {\tt binutils-dev} (version 2.19.1 in Ubuntu 9.04).
+
+(A technical legal point: the VEX library with which Vine links is
+distributed under version 2 of the GNU GPL only, whereas versions 2.18
+and later of the GNU Binutils are distributed only under versions 3
+and later of the GNU GPL.
+%
+Unfortunately, versions 2 and 3 of the GPL are mutually incompatible,
+so if you plan to distribute copies of Vine for platforms where the
+Binutils are not system libraries in the sense of the GPL, you may
+wish to use version 2.17 or earlier of the Binutils instead.)
+
+\subsubsection{OCaml build tools}
+
+Most of Vine is implemented in the functional language OCaml, so OCaml
+development tools are required.
+%
+In addition to the standard OCaml compiler and tools, Vine uses the
+Findlib library for managing OCaml packages, and the CamlIDL tool for
+generating interfaces to C code.
+%
+In Ubuntu 9.04, these are available as the {\tt ocaml} package
+(version 3.10.2), the {\tt ocaml-findlib} package (version 1.2.1), and
+the {\tt camlidl} package (version 1.05).
+%
+Optionally, you can also install the natively compiled versions of the
+OCaml build tools (which are somewhat faster) from the
+{\tt ocaml-native-compiler} package.
+
+\subsubsection{\label{sec:ocamlgraph}ocamlgraph}
+
+The ocamlgraph library provides graph data structures and algorithms,
+which Vine uses to represent control flow graphs.
+%
+Unfortunately, an interface that Vine uses changed incompatibly in
+version 0.99 of the library, so the source code we distribute supports
+only version 0.99 and later.
+%
+In Ubuntu 9.04, it is available as the package {\tt
+libocamlgraph-ocaml-dev}.
+%
+Note, however, that the version of the library packaged in earlier
+versions of Ubuntu is not compatible.
+%
+If a recent version of ocamlgraph is not packaged for your system, you
+have several options:
+\begin{enumerate}
+\item {\bf Compile ocamlgraph from source.}
+You can obtain the source for the latest version of ocamlgraph from
+\url{http://ocamlgraph.lri.fr/}.
+%
+Note that it only supports installation in {\tt /usr/lib} or {\tt
+/usr/local/lib}.
+%
+Also, some versions of ocamlgraph have a Makefile bug that causes them
+to look for interface files in the wrong location, which can be fixed
+by applying the following patch to {\tt Makefile.in}:
+
+\begin{Verbatim}[frame=lines, framesep=.5em]
+--- Makefile.in.orig
++++ Makefile.in
+@@ -210,7 +210,7 @@
+ 
+ install-findlib: META
+ ifdef OCAMLFIND
+-	$(OCAMLFIND) install ocamlgraph META *.mli \
++	$(OCAMLFIND) install ocamlgraph META $(LIBDIR)/*.mli \
+ 		graph$(LIBEXT) graph.cmx graph.cmo graph.cmi $(CMA) $(CMXA)
+ endif
+\end{Verbatim}
+
+\item {\bf Make a backport package.}
+If you would like to have the installation of ocamlgraph managed by
+your regular package manager, another option is to build a package
+yourself. For instance, a suitable package for Ubunutu 8.04 can be
+built and installed using Debian sources, as follows:
+
+\begin{Verbatim}[frame=lines, framesep=.5em]
+sudo apt-get install   libocamlgraph-ocaml-dev
+sudo apt-get build-dep libocamlgraph-ocaml-dev
+sudo apt-get install liblablgtk2-ocaml-dev liblablgtk2-gnome-ocaml-dev \
+                     docbook-xsl po4a
+sudo apt-get install fakeroot
+svn co svn://svn.debian.org/svn/pkg-ocaml-maint/trunk/packages/ocamlgraph \
+       -r5983
+tar xvzf ocamlgraph/upstream/ocamlgraph_0.99c.orig.tar.gz
+mv ocamlgraph/trunk/debian ocamlgraph-0.99c
+perl -pi -e 's[ocaml-nox \(>= 3.10.0-9\)] #\
+              [ocaml-nox  (>= 3.10.0-8)]' ocamlgraph-0.99c/debian/control
+(cd ocamlgraph-0.99c && dpkg-buildpackage -us -uc -rfakeroot)
+sudo dpkg -i libocamlgraph-ocaml-dev_0.99c-2_i386.deb
+\end{Verbatim}
+
+\item {\bf Patch the Vine source.}
+Because Vine does not use the extra functionality introduced in the
+new library version, another option is to change the Vine code that
+uses the library back to the older interface.
+%
+This requires four one-line changes in four files under {\tt ocaml},
+as in the following patch:
+
+\begin{Verbatim}[frame=lines, framesep=.5em]
+Index: ocaml/vine_cfg.mli
+===================================================================
+--- ocaml/vine_cfg.mli
++++ ocaml/vine_cfg.mli
+@@ -299,7 +299,7 @@
+ 
+ module Component :
+ sig
+-  val scc : G.t -> int * ( G.V.t -> int )
++  val scc : G.t -> G.V.t -> int
+   val scc_list : G.t -> G.V.t list list
+ end
+ 
+Index: ocaml/vine_cfg.ml
+===================================================================
+--- ocaml/vine_cfg.ml
++++ ocaml/vine_cfg.ml
+@@ -1271,7 +1271,7 @@
+     if cfg#has_edge rb ra then false
+     else (cfg#add_edge rb ra; true) (* temporary backedge *)
+   in
+-  let (_,scc) = Component.scc cfg in
++  let scc = Component.scc cfg in
+   let group = scc a in
+   let newcfg = new cfg 8 cfg#get_iter_labels_function cfg#vardecls in
+   let (outside: 'a bb) =
+Index: ocaml/vine_callstring.ml
+===================================================================
+--- ocaml/vine_callstring.ml
++++ ocaml/vine_callstring.ml
+@@ -178,7 +178,7 @@
+   else 
+     csg.graph 
+   in 
+-  let (_,scc) = Component.scc g in 
++  let scc = Component.scc g in 
+   let group = scc a in 
+   let addifgroup v newg = 
+     if scc v = group then
+Index: utils/chop.ml
+===================================================================
+--- utils/chop.ml
++++ utils/chop.ml
+@@ -243,7 +243,7 @@
+       fun () -> cfg#remove_edge t s 
+     ) 
+   in
+-  let (_,scc) = Component.scc cfg in
++  let scc = Component.scc cfg in
+     (* make sure we really have a cycle *)
+   let () = assert(scc (cfg#get_id s) = scc (cfg#get_id t)) in 
+   let group = scc (cfg#get_id s) in
+\end{Verbatim}
+\end{enumerate}
+
+\subsubsection{Other OCaml libraries}
+
+Vine also uses several further OCaml libraries:
+\begin{itemize}
+\item ExtLib provides an extended standard library (e.g., more data
+  structures) for OCaml; version 1.5.1 is in the package {\tt
+    libextlib-ocaml-dev}.
+\item GDome2 is a document object model for dealing with XML documents
+  that Vine uses via its OCaml bindings. Version 0.2.6 is available as
+  the package {\tt libgdome2-ocaml-dev}.
+\end{itemize}
+
+\begin{svn}
+\subsubsection{SQLite and its OCaml bindings}
+
+Vine uses the lightweight (serverless) SQL library SQLite, via an
+OCaml binding, to store databases of disassembled code with its IDA Pro
+static disassembler plug-in.
+%
+On Ubuntu 9.04, you should install the library itself (version 3.6.10)
+via the package {\tt libsqlite3-0} and the OCaml interface via the
+{\tt libsqlite3-ocaml-dev} package.
+%
+It is also convenient to install the command-line database tool, in
+the {\tt sqlite3} package.
+\end{svn}
+
+\subsubsection{\LaTeX}
+
+Vine's documentation (including this document) is written using the
+\LaTeX\ markup language, so you will need to install it to rebuild the
+documentation.
+%
+On Ubuntu 9.04, the needed parts are included under the {\tt texlive},
+{\tt texlive-latex-extra}, and {\tt transfig} packages.
+%
+To build an HTML version of the documentation, we also use \hevea,
+which is in the {\tt hevea} package.
+
+\subsection{Compiling}
+
+\begin{svn}
+\subsubsection{SVN checkout}
+
+The primary development version of Vine is referred to as the
+``trunk'' in the context of our Subversion repository, and it's kept
+at the URL \url{https://bullseye.cs.berkeley.edu/svn/vine/trunk}.
+%
+Note that this repository is password-protected; if someone has
+pointed you at this version of these instructions, you should already
+have an appropriate account; if you don't, you'll need to get one.
+%
+For instance, you can check out a copy of the source code into a
+directory named {\tt vine} by using the command:
+
+\begin{Verbatim}[frame=lines, framesep=.5em]
+svn checkout https://bullseye.cs.berkeley.edu/svn/vine/trunk vine
+\end{Verbatim}
+
+\subsubsection{Autoconf and Automake}
+
+To avoid redundancy in the repository, it doesn't store a copy of the
+{\tt configure} script or related files, so you will need to
+regenerate them by running the {\tt autogen.sh} script; it doesn't
+require any arguments.
+\end{svn}
+
+\begin{release}
+\subsubsection{Unpacking}
+
+Vine is distributed as a gzip-compressed tar archive, which you can
+unpack into a directory {\tt vine-1.0} using the command ``{\tt tar xvzf
+vine-1.0.tar.gz}''.
+
+\end{release}
+
+\subsubsection{Configure}
+
+To prepare the Vine source for compilation, you'll need to run the
+{\tt configure} script in the Vine source directory.
+%
+The script accepts all of the standard options and environment
+variables for autoconf-based configure scripts, though most should not
+be necessary.
+\begin{svn}
+One important option is {\tt --with-vex=}, which you should provide
+with the path to the VEX source directory you compiled as described in
+section~\ref{sec:vex}.
+\end{svn}
+
+\subsubsection{Build code}
+
+After the configuration script has finished, you can compile Vine by
+running {\tt make} in the top-level Vine directory.
+%
+This will compile first the C++ library and then the OCaml modules.
+
+\subsubsection{Build documentation}
+
+To generate the documentation that comes with Vine, go to the {\tt
+  vine/doc} subdirectory and give the command ``{\tt make doc}''.
+
+\subsection{Summary}
+
+To recap the steps described above, we now show a script for all of
+the commands needed to compile Vine, starting with a fresh
+installation of Ubuntu 9.04.
+\begin{svn}
+(This is also found as the file
+\verb'docs/install-vine-svn.sh' in the Vine source.)
+
+\VerbatimInput{../install-vine-svn.sh}
+\end{svn}
+\begin{release}
+(This is also found as the file
+\verb'docs/install-vine-release.sh' in the Vine source.)
+
+\VerbatimInput{../install-vine-release.sh}
+\end{release}
+
+\input{vine-overview}
+
+\input{vine-il}
+
+\section{Example}
+
+We now illustrate the use of Vine with an example.
+%
+In it, we will take a trace generated by TEMU from a program that
+parses an integer and checks whether it is equal to 5.
+%
+We will use Vine to build a version of the execution path in which the
+input is symbolic, and compute a path condition: a formula over the
+inputs which, if true, causes execution to take the same path.
+%
+Finally, we will use STP to solve the path condition and reconstruct
+an input that would cause the program to take the same path.
+%
+The trace is included in the {\tt examples} directory under the name
+{\tt five.trace}.
+
+\input {irformulagen}
+\input {stp}
+
+\input {utils}
+
+\section{Troubleshooting}
+
+This section lists some errors that you may encounter while using
+Vine, and gives suggestions on resolving them.
+
+\begin{itemize}
+\item Incompatible types in Vine\_cfg
+
+\begin{Verbatim}[frame=lines, framesep=.5em]
+File "vine_cfg.ml", line 1301, characters 16-33:
+This expression has type G.V.t -> int but is here used with type 'a * 'b
+\end{Verbatim}
+
+This error occurs if you try to compile Vine with a version of the
+ocamlgraph library older than 0.99, which has an incompatible type for
+one function.
+It can be avoided by using a newer version of the library, or worked
+around by modifying the Vine source; see Section~\ref{sec:ocamlgraph}
+for more details.
+
+\item Size assertion in VEX
+
+\begin{Verbatim}[frame=lines, framesep=.5em]
+vex: priv/host-x86/hdefs.c:2332 (emit_X86Instr):
+Assertion `sizeof(UInt) == sizeof(void*)' failed.
+\end{Verbatim}
+
+This error occurs if you try to use a 64-bit version of Vine to
+process 32-bit x86 code.
+Because the VEX library does not support cross-platform operation,
+Vine can only translate x86 code when compiled in 32-bit mode.
+However, you can still compile and run an x86 version of Vine on an
+x86-64 platform (see Section~\ref{sec:prereqs} for further
+discussion).
+You can also generate a Vine IL file on a 32-bit platform and then do
+further processing on a 64-bit one.
+
+\item OCaml stack overflow
+
+\begin{Verbatim}[frame=lines, framesep=.5em]
+Fatal error: exception Stack_overflow
+\end{Verbatim}
+
+This error occurs when an OCaml program tries to use more stack space
+than is available.
+If it occurs even on a very small input, it could be caused by an
+infinite recursion bug, but more commonly it is caused by processing a
+large data structure with a recursive algorithm.
+One potential fix is to increase the amount of stack space available.
+For native-compiled OCaml programs, stack usage is limited by the
+operating system's stack size resource limit, which may have a small
+default value such as 8MB.
+You can remove this limit with a shell command, such as {\tt ulimit -s
+  unlimited} in an sh-style shell or {\tt limit stacksize unlimited}
+in a csh-style shell; see your shell's documentation for more details.
+Sometimes debugging versions of programs use more stack space, so if
+you encounter this error with the {\tt .dbg} version of a program, try
+the version without that suffix.
+If the error was caused by recursion, a stack backtrace should reveal
+what function was the culprit; to obtain one, rerun the program with
+the {\tt OCAMLRUNPARAM} environment variable set to {\tt b}.
+\end{itemize}
+
+\section {Reporting Bugs}
+
+\begin{svn}
+Please report bugs to the bugzilla at:
+\texttt{https://bullseye.cs.berkeley.edu/bugzilla/}.
+
+When reporting bugs in the SVN version of the software, it's most
+useful if you can reproduce your problem with the most recent trunk
+version, but if you're using an older version, please specify the
+revision number (i.e., the output of the svnversion command in your
+bug report). And please also report if you notice something wrong or
+out of date in this document.
+\end{svn}
+\begin{release}
+Though we cannot give any guarantee of support for Vine, we are
+interested in hearing what you are using it for, and if you encounter
+any bugs or unclear points.
+%
+Please send your questions, feature suggestions, bugs (and, if you
+have them, patches) to the bitblaze-users mailing list.
+%
+Its web page is:
+\url{http://groups.google.com/group/bitblaze-users}.
+\end{release}
+\end{document}

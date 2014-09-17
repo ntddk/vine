@@ -1,0 +1,44 @@
+\subsection {Querying STP}
+
+Now, in the last step we wish to ask the question ``what input values
+force the execution down the path taken in the execution?''.  In the
+formula we've built, this is equivalent to asking for a set of
+assignments that make the variable \verb'post' true. We use STP to
+solve this formula for us.  The STP file has the symbolic
+\verb'INPUT' variable marked free (along with the initial contents of
+memory), and it asserts that the final value of {\tt post} is true.
+
+A symbolic formula $F$ is \emph{valid} if it is true in all
+interpretations.  In other words, $F$ is valid if all assignments to
+the free (symbolic) variables make $F$ true. Given a formula, STP
+decides whether it is valid or not. If it is invalid, then there
+exists at least one set of inputs that make the formula false, and
+STP can report such an assignment (a {\em counterexample}). We use
+this feature to get the assignment to the free \verb'INPUT' variable
+in the formula that makes the execution follow the traced path.
+Since we don't need to impose any additional constraints, beyond the
+ones included in {\tt post}, the formula we ask STP to try to falsify
+is {\tt FALSE}, which should be easily to falsify as long as the
+constraints are satisfiable.
+
+To do this, we add the following 2 lines at the end of the STP file
+and run STP on it:
+
+\begin{Verbatim}[frame=lines, framesep=.5em]
+% cat >>five.stp
+QUERY(FALSE);
+COUNTEREXAMPLE;
+% ./stp/stp five.stp
+Invalid.
+ASSERT( INPUT_1001_0_61  = 0hex35  );
+\end{Verbatim}
+
+STP's reply of \verb'Invalid.' indicates it has determined that the
+query formula \verb'FALSE' is not valid: there is an assignment to the
+program inputs that satisfies the other assertions in the file (i.e.,
+would lead the program to execute the same path that was observed),
+but still leaves \verb'FALSE' false. As a counterexample it gives one
+such input (in this case, the only possible one), in which the input
+has the hex value \verb'0x35' (ASCII for \texttt{5}).
+
+

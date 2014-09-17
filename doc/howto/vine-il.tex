@@ -1,0 +1,187 @@
+\section{The Vine Intermediate Language}
+\label{sec:vine-language}
+
+% Non-terminals from a grammar, suitable for use in math mode.
+\newcommand{\nt}[1]{\text{\em #1}}
+
+% Terminals from a grammar, suitable for use in math mode.
+\newcommand{\term}[1]{\text{\tt #1}}
+
+\begin{table}
+\centering
+\begin{footnotesize}
+\begin{tabular}{lll}
+  \nt{program}&::=&
+        \nt{decl}* \nt{stmt}*\\
+
+  \nt{decl}&::=& 
+         \term{var} \nt{var}\term{;}\\
+
+  \nt{stmt}&::=&  
+         \nt{lval} \term{=} \nt{exp}\term{;}
+     $|$ \term{jmp}\term{(}\nt{exp}\term{)}\term{;}
+     $|$ \term{cjmp}\term{(}\nt{exp}\term{,} \nt{exp}\term{,} \nt{exp}\term{);}
+     $|$ \term{halt}\term{(}\nt{exp}\term{)}\term{;}
+     $|$ \term{assert}\term{(}\nt{exp}\term{)}\term{;}\\
+     & &  $|$ \term{label} \nt{label}\term{:}
+     $|$ \term{special} \nt{string}\term{;}
+     $|$ \term{\char"7B} \nt{decl}* \nt{stmt}*\term{\char"7D}\\
+
+  \nt{label}&::=&
+         \nt{identifier}\\
+
+  \nt{lval}&::=&
+         \nt{var}
+     $|$ \nt{var}\term{[}\nt{exp}\term{]}\\
+
+  \nt{exp}&::=&
+         \term{(} \nt{exp} \term{)}
+     $|$ \nt{lval}
+     $|$ \term{name}\term{(}\nt{label}\term{)}
+     $|$ \nt{exp} $\Diamond_b$ \nt{exp} 
+     $|$ $\Diamond_u$ \nt{exp}
+     $|$ \nt{const}\\
+     & &  $|$ \term{let} \nt{lval} \term{=} \nt{exp} \term{in} \nt{exp}
+     $|$ \term{cast}\term{(}\nt{exp}\term{)}\nt{cast{\tt \_}kind}\term{:}$\tau_{\text{reg}}$\\
+
+  \nt{cast{\tt \_}kind}&::=&  
+         \term{Unsigned} $|$ \term{U}
+     $|$ \term{Signed} $|$ \term{S}
+     $|$ \term{High} $|$ \term{H}
+     $|$ \term{Low} $|$ \term{L}\\
+
+  \nt{var}&::=& 
+         \nt{identifier}\term{:}$\tau$\\
+
+
+  $\Diamond_b$&::=&
+         \term{+} $|$ \term{-} $|$ \term{*}
+     $|$ \term{/} $|$ \term{/\$} $|$ \term{\%} $|$ \term{\%\$}
+     $|$ \term{<<} $|$ \term{>>} $|$ \term{\char"40 >>}
+     $|$ \term{\&} $|$ \term{\char"5E} $|$ \term{|} \\
+     & & $|$ \term{==} $|$ \term{<>}
+     $|$ \term{<} $|$ \term{<=} $|$ \term{>} $|$ \term{>=}
+     $|$ \term{<\$} $|$ \term{<=\$} $|$ \term{>\$} $|$ \term{>=\$}\\
+
+  $\Diamond_u$&::=& \term{-} $|$ \term{!}\\
+
+  \nt{const}&::=& \nt{integer}:$\tau_{\text{reg}}$ \\
+
+  \nt{$\tau$} &::=&
+          \nt{$\tau_{\text{reg}}$} 
+      $|$ \nt{$\tau_{\text{mem}}$}\\
+  
+  \nt{$\tau_{\text{reg}}$}&::=&
+          \term{reg1\_t} 
+      $|$ \term{reg8\_t} 
+      $|$ \term{reg16\_t} 
+      $|$ \term{reg32\_t} 
+      $|$ \term{reg64\_t}\\
+
+  \nt{$\tau_{\text{mem}}$}&::=& 
+          \term{mem32l\_t}
+      $|$ \term{mem64l\_t}
+      $|$ \nt{$\tau_{\text{reg}}$}\term{[}\nt{const}\term{]}\\
+\end{tabular}
+\end{footnotesize}
+\caption{The grammar of the Vine Intermediate Language (IL).}
+\label{vine:syntax}
+\end{table}
+
+The Vine IL
+is the target language during lifting, as well as the analysis
+language for back-end program analysis.  The semantics of the IL are designed
+to be faithful to assembly languages.  Table~\ref{vine:syntax} shows
+the syntax of Vine IL. 
+The lexical syntax of identifiers and strings are as in C.
+Integers may be specified in decimal, or in hexadecimal with a prefix
+of {\tt 0x}.
+Comments may be introduced with {\tt //}, terminated by the end of a
+line, or with {\tt /*}, terminated by {\tt */}.
+
+The base types in the Vine IL are 1, 8, 16, 32, and 64-bit-wide bit
+vectors, also called registers.
+1-bit registers are used as booleans; {\tt false} and {\tt true} are
+allowed as syntactic sugar for {\tt 0:reg1\_t} and {\tt 1:reg1\_t}
+respectively.
+There are also two kinds of aggregate types, which we call {\em arrays}
+and {\em memories}.
+Both are usually used to represent the memory of a machine, but at
+different abstraction levels.
+An array consists of distinct elements of a fixed register type,
+accessed at consecutive indices ranging from 0 up to one less than
+their declared size.
+By contrast, memory indices are always byte offsets, but memories may
+be read or written with any type between 8 and 64 bits.
+Accesses larger than a byte use a sequence of consecutive bytes, so
+accesses at nearby addresses might partially overlap, and it is
+observable whether the memory is little-endian (storing the least
+significant byte at the lowest address) or big-endian (storing
+the most significant byte at the lowest address).
+Generally, memories more concisely represent the semantics of
+instructions, but arrays are easier to analyze, so Vine analyses will
+convert memories into arrays, a process we sometimes call {\em
+de-endianization}.
+The current version of Vine supports two little-endian memory types,
+with either 32-bit or 64-bit address sizes.
+
+Expressions in Vine are side-effect free.
+Variables and constants must be labeled with their type (separated
+with a colon) whenever they appear.
+The binary and unary operators are similar to those of C, with the
+following differences:
+\begin{itemize}
+\item Not-equal-to is {\tt <>}, rather than {\tt !=}.
+\item The division, modulus, right shift, and ordered comparison
+  operators are explicitly marked for signedness: the unadorned
+  versions are always unsigned, while the signed variants are suffixed
+  with a {\tt \$} (for ``signed''), or in the case of right shift
+  prefixed with an {\tt\char"40} (for ``arithmetic'').
+\item There is no distinction between logical and bitwise
+  operators, so {\tt \&} also serves for {\tt \&\&}, {\tt |} also
+  serves for {\tt ||}, and {\tt !} also serves for {\tt \char"7E}.
+\end{itemize}
+There is no implicit conversion between types of different widths;
+instead, all conversions are through an explicit cast operator that
+specifies the target type.
+Widening casts are either {\tt Unsigned} (zero-extending) or {\tt
+Signed} (sign-extending), while narrowing casts can select either the
+{\tt High} or {\tt Low} portion of the larger value.
+(For brevity, these are usually abbreviated by their first letters.)
+A {\tt let} expression, as in functional languages, allows the
+introduction of a temporary variable.
+
+A program in Vine is a sequence of variable declarations, followed by
+a sequence of statements; block structure is supported with curly
+braces.
+(In fact, the parser allows declarations to be intermixed with
+statements, but the effect is as if the declarations had all appeared
+first.)
+Some documents also refer to statements as ``instructions,'' but note
+that more complex machine instructions translate into several Vine
+statements.
+The most frequent kind of statement is an assignment to a variable or
+to a location in an array or memory variable.
+Control flow is unstructured, as in assembly language: program
+locations are specified with labels, and there are unconditional ({\tt
+jmp}) and conditional ({\tt cjmp}) jumps.
+The argument to {\tt jmp} and the second and third arguments to {\tt
+cjmp} may be either labels (introduced by {\tt name}), or a register
+expression to represent a computed jump.
+The first argument to {\tt cjmp} is a {\tt reg1\_t} that selects the
+second (for 1) or third (for 0) argument as the target.
+
+A program can halt normally
+at any time by issuing the {\tt halt} statement.  We also provide {\tt
+  assert}, which acts similar to a C assert: the asserted expression
+must be true, else the machine halts.
+A {\tt special} in Vine corresponds to a call to an externally
+defined procedure or function.  The argument of a special indexes what kind
+of special, e.g., what system call.  The semantics of {\tt special} is
+up to the analysis; its operational semantics are not defined.  We
+include {\tt special} as an instruction type to explicitly distinguish
+when such calls may occur that alter the soundness of an analysis. A
+typical approach to dealing with {\tt special} is to replace {\tt
+special} with an analysis-specific summary written in the
+Vine IL that is appropriate for the analysis.
+

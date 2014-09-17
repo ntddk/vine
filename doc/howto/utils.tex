@@ -1,0 +1,63 @@
+\section {Documentation of various utilities in Vine}
+\label{sec:utils}
+
+Here is a slightly more detailed explanation of the Vine utilities
+used in the example.
+
+\subsection {Appreplay}
+
+\begin{itemize}
+
+\item \texttt{-trace} : specifies the TEMU execution trace file to process
+
+\item \texttt {-state} and \texttt{-state-range} are used to
+initialize ranges of memory locations from a TEMU state snapshot.
+
+\item \texttt{-conc-mem-idx} is an optimization to do some constant
+propagation, which appears to help STP quite a bit. This will likely
+become deprecated once some of the STP optimization issues are
+resolved.
+
+\item \texttt{-prop-consts} is another optimization that propagates
+all constant values using Vine's evaluator.
+
+\item \texttt {-use-thunks} if set to true, the generated IR will
+have calls to functions to update the processor's condition codes
+(\verb'EFLAGS' for the x86). If false, this code will be inlined
+instead.  For most analysis purposes this should be disabled. It may
+be useful for generating a smaller IR with the intent of giving it to
+the evaluator rather than to STP.
+
+\item \texttt{-use-post-var} if this is  set to true, then
+\verb'assert' statements will be rewritten to update a variable
+'post', such that at the end of the trace \verb'post' will have value
+true if and only if all assertions would have passed.  This is mostly
+for backwards compatibility for before we introduced the \verb'assert'
+statement.
+
+\item \texttt  {-deend} performs "deendianization",  i.e. rewrites
+all memory expressions to equivalent array expressions. This should
+usually be enabled.
+
+\item \texttt {-concrete} initializes all the 'input' symbols to
+the values they had in the trace.
+
+\item \texttt{-verify-expected}  is  mostly  for regression/sanity  tests,  in
+conjunction with \verb'-concrete'. \texttt{-verify-expected} adds
+assertions to verify the all operands subsequently computed from those
+symbols have the same value as they did in the trace, as they should
+in this case.
+
+\item \texttt{-include-all} translates and includes \emph{all} instructions,
+rather than only those that (may) operate on tainted data. Generally
+not desirable, but sometimes useful for debugging.
+
+\item \texttt{-ir-out} specify the output ir file.
+
+\item \texttt{-wp-out} and  \texttt{-stp-out} tell  appreplay to
+compute the weakest precondition (WP) over the variable \verb'post'
+(described above), and convert the resulting IR to an STP formula. the
+formula holds for inputs that would follow the same execution path as
+in the trace.
+
+\end{itemize}
