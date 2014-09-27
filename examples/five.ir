@@ -1,0 +1,5022 @@
+var R_EBP_0:reg32_t;
+var R_ESP_1:reg32_t;
+var R_ESI_2:reg32_t;
+var R_EDI_3:reg32_t;
+var R_EIP_4:reg32_t;
+var R_EAX_5:reg32_t;
+var R_EBX_6:reg32_t;
+var R_ECX_7:reg32_t;
+var R_EDX_8:reg32_t;
+var EFLAGS_9:reg32_t;
+var R_CF_10:reg1_t;
+var R_PF_11:reg1_t;
+var R_AF_12:reg1_t;
+var R_ZF_13:reg1_t;
+var R_SF_14:reg1_t;
+var R_OF_15:reg1_t;
+var R_CC_OP_16:reg32_t;
+var R_CC_DEP1_17:reg32_t;
+var R_CC_DEP2_18:reg32_t;
+var R_CC_NDEP_19:reg32_t;
+var R_DFLAG_20:reg32_t;
+var R_IDFLAG_21:reg32_t;
+var R_ACFLAG_22:reg32_t;
+var R_EMWARN_23:reg32_t;
+var R_LDT_24:reg32_t;
+var R_GDT_25:reg32_t;
+var R_CS_26:reg16_t;
+var R_DS_27:reg16_t;
+var R_ES_28:reg16_t;
+var R_FS_29:reg16_t;
+var R_GS_30:reg16_t;
+var R_SS_31:reg16_t;
+var R_FTOP_32:reg32_t;
+var R_FPROUND_33:reg32_t;
+var R_FC3210_34:reg32_t;
+var mem_35:mem32l_t;
+var mem_arr_57:reg8_t[4294967296];
+var INPUT_1001_0000_61:reg8_t;
+var post_1045:reg1_t;
+var idx_1046:reg32_t;
+var val_1047:reg8_t;
+var T_32t0_1048:reg32_t;
+var T_32t1_1049:reg32_t;
+var T_8t2_1050:reg8_t;
+var T_32t2_1053:reg32_t;
+var T_0_1054:reg32_t;
+var T_1_1055:reg8_t;
+var T_1t0_1056:reg1_t;
+var T_32t1_1057:reg32_t;
+var T_32t2_1058:reg32_t;
+var T_32t3_1059:reg32_t;
+var T_32t4_1060:reg32_t;
+var T_32t5_1061:reg32_t;
+var T_32t0_1062:reg32_t;
+var T_32t1_1063:reg32_t;
+var T_8t2_1064:reg8_t;
+var idx_1065:reg32_t;
+var val_1066:reg32_t;
+var T_32t1_1068:reg32_t;
+var T_32t2_1069:reg32_t;
+var T_32t3_1070:reg32_t;
+var idx_1071:reg32_t;
+var val_1072:reg32_t;
+var idx_1073:reg32_t;
+var val_1074:reg8_t;
+var idx_1075:reg32_t;
+var val_1076:reg8_t;
+var idx_1077:reg32_t;
+var val_1078:reg8_t;
+var T_32t2_1081:reg32_t;
+var T_32t4_1083:reg32_t;
+var T_32t5_1084:reg32_t;
+var T_3_1085:reg32_t;
+var T_4_1086:reg8_t;
+var T_1t0_1087:reg1_t;
+var T_32t1_1088:reg32_t;
+var T_32t2_1089:reg32_t;
+var T_32t3_1090:reg32_t;
+var T_32t4_1091:reg32_t;
+var T_32t5_1092:reg32_t;
+var idx_1093:reg32_t;
+var val_1094:reg8_t;
+var idx_1095:reg32_t;
+var val_1096:reg8_t;
+var idx_1097:reg32_t;
+var val_1098:reg8_t;
+var T_32t1_1100:reg32_t;
+var T_32t2_1101:reg32_t;
+var T_32t3_1102:reg32_t;
+var idx_1103:reg32_t;
+var val_1104:reg8_t;
+var T_8t2_1107:reg8_t;
+var T_8t3_1108:reg8_t;
+var T_32t4_1109:reg32_t;
+var T_32t5_1110:reg32_t;
+var T_32t6_1111:reg32_t;
+var T_32t7_1112:reg32_t;
+var T_32t8_1113:reg32_t;
+var T_32t9_1114:reg32_t;
+var T_7_1115:reg8_t;
+var idx_1116:reg32_t;
+var T_1t0_1117:reg1_t;
+var T_32t1_1118:reg32_t;
+var T_32t2_1119:reg32_t;
+var T_32t3_1120:reg32_t;
+var T_32t4_1121:reg32_t;
+var T_32t5_1122:reg32_t;
+var idx_1123:reg32_t;
+var val_1124:reg8_t;
+var idx_1125:reg32_t;
+var val_1126:reg8_t;
+var idx_1127:reg32_t;
+var val_1128:reg8_t;
+var T_32t2_1131:reg32_t;
+var T_32t4_1133:reg32_t;
+var T_32t5_1134:reg32_t;
+var T_10_1135:reg32_t;
+var T_11_1136:reg8_t;
+var T_1t0_1137:reg1_t;
+var T_32t1_1138:reg32_t;
+var T_32t2_1139:reg32_t;
+var T_32t3_1140:reg32_t;
+var T_32t4_1141:reg32_t;
+var T_32t5_1142:reg32_t;
+var T_32t1_1144:reg32_t;
+var T_32t2_1145:reg32_t;
+var T_32t3_1146:reg32_t;
+var T_8t4_1147:reg8_t;
+var idx_1148:reg32_t;
+var val_1149:reg32_t;
+var T_32t0_1150:reg32_t;
+var T_32t2_1152:reg32_t;
+var T_32t3_1153:reg32_t;
+var idx_1154:reg32_t;
+var val_1155:reg32_t;
+var idx_1156:reg32_t;
+var val_1157:reg8_t;
+var idx_1158:reg32_t;
+var val_1159:reg8_t;
+var idx_1160:reg32_t;
+var val_1161:reg8_t;
+var T_32t1_1163:reg32_t;
+var T_32t2_1164:reg32_t;
+var T_32t3_1165:reg32_t;
+var T_8t1_1167:reg8_t;
+var T_8t2_1168:reg8_t;
+var T_32t4_1170:reg32_t;
+var T_32t5_1171:reg32_t;
+var T_32t6_1172:reg32_t;
+var T_32t7_1173:reg32_t;
+var T_14_1174:reg32_t;
+var T_15_1175:reg8_t;
+var T_1t0_1176:reg1_t;
+var T_32t1_1177:reg32_t;
+var T_32t2_1178:reg32_t;
+var T_32t3_1179:reg32_t;
+var T_32t4_1180:reg32_t;
+var T_32t5_1181:reg32_t;
+var T_32t0_1182:reg32_t;
+var T_8t1_1183:reg8_t;
+var T_32t2_1186:reg32_t;
+var T_17_1187:reg32_t;
+var T_18_1188:reg8_t;
+var T_1t0_1189:reg1_t;
+var T_32t1_1190:reg32_t;
+var T_32t2_1191:reg32_t;
+var T_32t3_1192:reg32_t;
+var T_32t4_1193:reg32_t;
+var T_32t5_1194:reg32_t;
+var idx_1195:reg32_t;
+var val_1196:reg8_t;
+var idx_1197:reg32_t;
+var val_1198:reg8_t;
+var idx_1199:reg32_t;
+var val_1200:reg8_t;
+var T_32t2_1203:reg32_t;
+var T_32t4_1205:reg32_t;
+var T_32t5_1206:reg32_t;
+var T_20_1207:reg32_t;
+var T_21_1208:reg8_t;
+var T_1t0_1209:reg1_t;
+var T_32t1_1210:reg32_t;
+var T_32t2_1211:reg32_t;
+var T_32t3_1212:reg32_t;
+var T_32t4_1213:reg32_t;
+var T_32t5_1214:reg32_t;
+var T_32t0_1215:reg32_t;
+var T_32t1_1216:reg32_t;
+var T_8t2_1217:reg8_t;
+var idx_1218:reg32_t;
+var val_1219:reg8_t;
+var idx_1220:reg32_t;
+var val_1221:reg8_t;
+var idx_1222:reg32_t;
+var val_1223:reg8_t;
+var T_32t1_1225:reg32_t;
+var T_32t2_1226:reg32_t;
+var T_32t3_1227:reg32_t;
+var idx_1228:reg32_t;
+var val_1229:reg32_t;
+var idx_1230:reg32_t;
+var val_1231:reg8_t;
+var idx_1232:reg32_t;
+var val_1233:reg8_t;
+var idx_1234:reg32_t;
+var val_1235:reg8_t;
+var T_32t1_1237:reg32_t;
+var T_32t2_1238:reg32_t;
+var T_32t3_1239:reg32_t;
+var idx_1240:reg32_t;
+var val_1241:reg8_t;
+var idx_1242:reg32_t;
+var val_1243:reg8_t;
+var idx_1244:reg32_t;
+var val_1245:reg8_t;
+var T_32t2_1248:reg32_t;
+var T_32t4_1250:reg32_t;
+var T_32t5_1251:reg32_t;
+var T_24_1252:reg32_t;
+var T_25_1253:reg8_t;
+var idx_1254:reg32_t;
+var val_1255:reg8_t;
+var idx_1256:reg32_t;
+var val_1257:reg8_t;
+var idx_1258:reg32_t;
+var val_1259:reg8_t;
+var T_32t2_1262:reg32_t;
+var T_32t4_1264:reg32_t;
+var T_32t5_1265:reg32_t;
+var T_28_1266:reg32_t;
+var T_29_1267:reg8_t;
+var T_1t0_1268:reg1_t;
+var T_32t1_1269:reg32_t;
+var T_32t2_1270:reg32_t;
+var T_32t3_1271:reg32_t;
+var T_32t4_1272:reg32_t;
+var T_32t5_1273:reg32_t;
+var T_32t2_1276:reg32_t;
+var T_30_1277:reg32_t;
+var T_31_1278:reg8_t;
+var T_1t0_1279:reg1_t;
+var T_32t1_1280:reg32_t;
+var T_32t2_1281:reg32_t;
+var T_32t3_1282:reg32_t;
+var T_32t4_1283:reg32_t;
+var T_32t5_1284:reg32_t;
+var T_32t2_1287:reg32_t;
+var T_32_1288:reg32_t;
+var T_33_1289:reg8_t;
+var T_1t0_1290:reg1_t;
+var T_32t1_1291:reg32_t;
+var T_32t2_1292:reg32_t;
+var T_32t3_1293:reg32_t;
+var T_32t4_1294:reg32_t;
+var T_32t5_1295:reg32_t;
+var idx_1296:reg32_t;
+var val_1297:reg8_t;
+var idx_1298:reg32_t;
+var val_1299:reg8_t;
+var idx_1300:reg32_t;
+var val_1301:reg8_t;
+var T_32t2_1304:reg32_t;
+var T_32t4_1306:reg32_t;
+var T_32t5_1307:reg32_t;
+var T_35_1308:reg32_t;
+var T_36_1309:reg8_t;
+var T_1t0_1310:reg1_t;
+var T_32t1_1311:reg32_t;
+var T_32t2_1312:reg32_t;
+var T_32t3_1313:reg32_t;
+var T_32t4_1314:reg32_t;
+var T_32t5_1315:reg32_t;
+var idx_1316:reg32_t;
+var val_1317:reg8_t;
+var idx_1318:reg32_t;
+var val_1319:reg8_t;
+var idx_1320:reg32_t;
+var val_1321:reg8_t;
+var T_32t2_1324:reg32_t;
+var T_32t4_1326:reg32_t;
+var T_32t5_1327:reg32_t;
+var T_38_1328:reg32_t;
+var T_39_1329:reg8_t;
+var T_1t0_1330:reg1_t;
+var T_32t1_1331:reg32_t;
+var T_32t2_1332:reg32_t;
+var T_32t3_1333:reg32_t;
+var T_32t4_1334:reg32_t;
+var T_32t5_1335:reg32_t;
+var idx_1336:reg32_t;
+var val_1337:reg8_t;
+var idx_1338:reg32_t;
+var val_1339:reg8_t;
+var idx_1340:reg32_t;
+var val_1341:reg8_t;
+var T_32t1_1343:reg32_t;
+var T_32t2_1344:reg32_t;
+var T_32t3_1345:reg32_t;
+var idx_1346:reg32_t;
+var val_1347:reg8_t;
+var T_8t2_1350:reg8_t;
+var T_8t3_1351:reg8_t;
+var T_32t4_1352:reg32_t;
+var T_32t5_1353:reg32_t;
+var T_32t6_1354:reg32_t;
+var T_32t7_1355:reg32_t;
+var T_32t8_1356:reg32_t;
+var T_32t9_1357:reg32_t;
+var T_41_1358:reg8_t;
+var idx_1359:reg32_t;
+var T_1t0_1360:reg1_t;
+var T_32t1_1361:reg32_t;
+var T_32t2_1362:reg32_t;
+var T_32t3_1363:reg32_t;
+var T_32t4_1364:reg32_t;
+var T_32t5_1365:reg32_t;
+var T_32t0_1366:reg32_t;
+var T_32t0_1367:reg32_t;
+var T_32t2_1369:reg32_t;
+var T_42_1370:reg32_t;
+var T_43_1371:reg8_t;
+var idx_1372:reg32_t;
+var val_1373:reg32_t;
+var T_32t1_1375:reg32_t;
+var T_32t2_1376:reg32_t;
+var T_32t4_1378:reg32_t;
+var T_32t5_1379:reg32_t;
+var T_44_1380:reg32_t;
+var T_45_1381:reg8_t;
+var T_1t0_1382:reg1_t;
+var T_32t1_1383:reg32_t;
+var T_32t2_1384:reg32_t;
+var T_32t3_1385:reg32_t;
+var T_32t4_1386:reg32_t;
+var T_32t5_1387:reg32_t;
+var T_32t1_1389:reg32_t;
+var T_32t2_1390:reg32_t;
+var T_32t3_1391:reg32_t;
+var T_8t4_1392:reg8_t;
+var idx_1393:reg32_t;
+var val_1394:reg8_t;
+var T_32t1_1396:reg32_t;
+var T_32t3_1398:reg32_t;
+var T_32t4_1399:reg32_t;
+var T_8t5_1400:reg8_t;
+var idx_1401:reg32_t;
+var val_1402:reg8_t;
+var idx_1403:reg32_t;
+var val_1404:reg8_t;
+var idx_1405:reg32_t;
+var val_1406:reg8_t;
+var idx_1407:reg32_t;
+var val_1408:reg8_t;
+var T_32t2_1411:reg32_t;
+var T_32t4_1413:reg32_t;
+var T_32t5_1414:reg32_t;
+var T_48_1415:reg32_t;
+var T_49_1416:reg8_t;
+var T_1t0_1417:reg1_t;
+var T_32t1_1418:reg32_t;
+var T_32t2_1419:reg32_t;
+var T_32t3_1420:reg32_t;
+var T_32t4_1421:reg32_t;
+var T_32t5_1422:reg32_t;
+var T_32t0_1423:reg32_t;
+var T_32t1_1424:reg32_t;
+var T_8t2_1425:reg8_t;
+var T_8t0_1426:reg8_t;
+var T_32t3_1429:reg32_t;
+var T_52_1431:reg32_t;
+var T_53_1432:reg8_t;
+var T_1t0_1433:reg1_t;
+var T_32t1_1434:reg32_t;
+var T_32t2_1435:reg32_t;
+var T_32t3_1436:reg32_t;
+var T_32t4_1437:reg32_t;
+var T_32t5_1438:reg32_t;
+var T_8t0_1439:reg8_t;
+var T_32t3_1442:reg32_t;
+var T_54_1444:reg32_t;
+var T_55_1445:reg8_t;
+var T_1t0_1446:reg1_t;
+var T_32t1_1447:reg32_t;
+var T_32t2_1448:reg32_t;
+var T_32t3_1449:reg32_t;
+var T_32t4_1450:reg32_t;
+var T_32t5_1451:reg32_t;
+var T_32t0_1452:reg32_t;
+var T_32t1_1453:reg32_t;
+var T_8t2_1454:reg8_t;
+var idx_1455:reg32_t;
+var val_1456:reg8_t;
+var T_8t2_1459:reg8_t;
+var T_8t3_1460:reg8_t;
+var T_32t4_1461:reg32_t;
+var T_32t5_1462:reg32_t;
+var T_32t6_1463:reg32_t;
+var T_32t7_1464:reg32_t;
+var T_32t8_1465:reg32_t;
+var T_32t9_1466:reg32_t;
+var T_58_1467:reg8_t;
+var idx_1468:reg32_t;
+var T_1t0_1469:reg1_t;
+var T_32t1_1470:reg32_t;
+var T_32t2_1471:reg32_t;
+var T_32t3_1472:reg32_t;
+var T_32t4_1473:reg32_t;
+var T_32t5_1474:reg32_t;
+var T_32t0_1475:reg32_t;
+var T_32t1_1476:reg32_t;
+var T_8t2_1477:reg8_t;
+var T_8t2_1480:reg8_t;
+var T_32t3_1481:reg32_t;
+var T_59_1482:reg8_t;
+var T_1t0_1483:reg1_t;
+var T_32t1_1484:reg32_t;
+var T_32t2_1485:reg32_t;
+var T_32t3_1486:reg32_t;
+var T_32t4_1487:reg32_t;
+var T_32t5_1488:reg32_t;
+var T_8t2_1491:reg8_t;
+var T_32t3_1492:reg32_t;
+var T_60_1494:reg32_t;
+var T_61_1495:reg8_t;
+var T_1t0_1496:reg1_t;
+var T_32t1_1497:reg32_t;
+var T_32t2_1498:reg32_t;
+var T_32t3_1499:reg32_t;
+var T_32t4_1500:reg32_t;
+var T_32t5_1501:reg32_t;
+var T_8t2_1504:reg8_t;
+var T_32t3_1505:reg32_t;
+var T_63_1507:reg32_t;
+var T_64_1508:reg8_t;
+var T_32t0_1509:reg32_t;
+var T_32t1_1510:reg32_t;
+var T_8t2_1511:reg8_t;
+var T_8t0_1512:reg8_t;
+var T_32t3_1515:reg32_t;
+var T_67_1517:reg32_t;
+var T_68_1518:reg8_t;
+var idx_1519:reg32_t;
+var val_1520:reg8_t;
+var T_32t1_1522:reg32_t;
+var T_32t2_1523:reg32_t;
+var T_8t3_1524:reg8_t;
+var idx_1525:reg32_t;
+var val_1526:reg8_t;
+var T_1t0_1527:reg1_t;
+var T_32t1_1528:reg32_t;
+var T_32t2_1529:reg32_t;
+var T_32t3_1530:reg32_t;
+var T_32t4_1531:reg32_t;
+var T_32t5_1532:reg32_t;
+var T_32t1_1534:reg32_t;
+var T_32t2_1535:reg32_t;
+var T_32t3_1536:reg32_t;
+var T_8t4_1537:reg8_t;
+var T_8t2_1540:reg8_t;
+var T_32t3_1541:reg32_t;
+var T_70_1542:reg8_t;
+var T_1t0_1543:reg1_t;
+var T_32t1_1544:reg32_t;
+var T_32t2_1545:reg32_t;
+var T_32t3_1546:reg32_t;
+var T_32t4_1547:reg32_t;
+var T_32t5_1548:reg32_t;
+var T_8t0_1549:reg8_t;
+var T_8t0_1550:reg8_t;
+var T_8t2_1552:reg8_t;
+var T_32t3_1553:reg32_t;
+var T_73_1555:reg32_t;
+var T_74_1556:reg8_t;
+var T_8t0_1557:reg8_t;
+var T_32t3_1560:reg32_t;
+var T_75_1562:reg32_t;
+var T_76_1563:reg8_t;
+var T_1t0_1564:reg1_t;
+var T_32t1_1565:reg32_t;
+var T_32t2_1566:reg32_t;
+var T_32t3_1567:reg32_t;
+var T_32t4_1568:reg32_t;
+var T_32t5_1569:reg32_t;
+var T_8t0_1570:reg8_t;
+var T_32t0_1571:reg32_t;
+var T_8t1_1572:reg8_t;
+var idx_1573:reg32_t;
+var val_1574:reg32_t;
+var T_32t1_1576:reg32_t;
+var T_32t2_1577:reg32_t;
+var T_32t4_1579:reg32_t;
+var T_32t5_1580:reg32_t;
+var T_77_1581:reg32_t;
+var T_78_1582:reg8_t;
+var T_1t0_1583:reg1_t;
+var T_32t1_1584:reg32_t;
+var T_32t2_1585:reg32_t;
+var T_32t3_1586:reg32_t;
+var T_32t4_1587:reg32_t;
+var T_32t5_1588:reg32_t;
+var T_32t0_1589:reg32_t;
+var T_8t1_1590:reg8_t;
+var T_32t0_1591:reg32_t;
+var T_32t1_1592:reg32_t;
+var T_32t2_1593:reg32_t;
+var T_81_1594:reg32_t;
+var T_82_1595:reg8_t;
+var idx_1596:reg32_t;
+var val_1597:reg32_t;
+var T_32t1_1599:reg32_t;
+var T_32t2_1600:reg32_t;
+var T_32t3_1601:reg32_t;
+var idx_1602:reg32_t;
+var val_1603:reg32_t;
+var T_32t1_1605:reg32_t;
+var T_32t2_1606:reg32_t;
+var T_32t3_1607:reg32_t;
+var T_32t2_1610:reg32_t;
+var T_84_1611:reg8_t;
+var T_1t0_1612:reg1_t;
+var T_32t1_1613:reg32_t;
+var T_32t2_1614:reg32_t;
+var T_32t3_1615:reg32_t;
+var T_32t4_1616:reg32_t;
+var T_32t5_1617:reg32_t;
+var T_32t1_1619:reg32_t;
+var T_32t2_1620:reg32_t;
+var T_32t3_1621:reg32_t;
+var T_32t2_1624:reg32_t;
+var T_32t3_1625:reg32_t;
+var T_86_1626:reg32_t;
+var T_87_1627:reg8_t;
+var T_32t0_1628:reg32_t;
+var T_32t1_1629:reg32_t;
+var T_32t3_1631:reg32_t;
+var T_32t4_1632:reg32_t;
+var T_32t5_1633:reg32_t;
+var T_8t6_1634:reg8_t;
+var T_1t7_1635:reg1_t;
+var T_32t8_1636:reg32_t;
+var T_32t9_1637:reg32_t;
+var T_32t10_1638:reg32_t;
+var T_32t11_1639:reg32_t;
+var T_32t12_1640:reg32_t;
+var T_89_1641:reg32_t;
+var T_90_1642:reg32_t;
+var T_32t1_1644:reg32_t;
+var T_32t2_1645:reg32_t;
+var T_32t3_1646:reg32_t;
+var idx_1647:reg32_t;
+var val_1648:reg32_t;
+var idx_1649:reg32_t;
+var val_1650:reg32_t;
+var T_32t1_1652:reg32_t;
+var T_32t2_1653:reg32_t;
+var T_32t3_1654:reg32_t;
+var idx_1655:reg32_t;
+var val_1656:reg32_t;
+var T_32t1_1658:reg32_t;
+var T_32t2_1659:reg32_t;
+var T_32t3_1660:reg32_t;
+var idx_1661:reg32_t;
+var val_1662:reg32_t;
+var T_32t0_1663:reg32_t;
+var T_32t1_1664:reg32_t;
+var idx_1665:reg32_t;
+var val_1666:reg32_t;
+var T_32t2_1669:reg32_t;
+var T_32t4_1671:reg32_t;
+var T_32t5_1672:reg32_t;
+var T_91_1673:reg32_t;
+var T_92_1674:reg8_t;
+var T_1t0_1675:reg1_t;
+var T_32t1_1676:reg32_t;
+var T_32t2_1677:reg32_t;
+var T_32t3_1678:reg32_t;
+var T_32t4_1679:reg32_t;
+var T_32t5_1680:reg32_t;
+
+post_1045:reg1_t = true;
+label pc_0x42075911_1:
+/*movzbl (%eax),%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_EAX_5:reg32_t = 0x40014000:reg32_t;
+idx_1046:reg32_t = 0x40014000:reg32_t;
+val_1047:reg8_t = INPUT_1001_0000_61:reg8_t;
+mem_arr_57[0x40014000:reg32_t]:reg8_t =
+cast((val_1047:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+R_EAX_5:reg32_t = 0x40014000:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t0_1048:reg32_t = R_EAX_5:reg32_t;
+T_8t2_1050:reg8_t = mem_arr_57[0x40014000:reg32_t]:reg8_t;
+T_32t1_1049:reg32_t = cast(T_8t2_1050:reg8_t)U:reg32_t;
+R_EAX_5:reg32_t = T_32t1_1049:reg32_t;
+label pc_0x42077e0c_10:
+/*cmp    $0xffffffff,%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*EAX:0 Already initd input (1001, 0)*/
+
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+EFLAGS_9:reg32_t = 0x256:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1053:reg32_t = R_EAX_5:reg32_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 6:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1053:reg32_t;
+R_CC_DEP2_18:reg32_t = 0xffffffff:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_0_1054:reg32_t = T_32t2_1053:reg32_t - 0xffffffff:reg32_t;
+R_CF_10:reg1_t = T_32t2_1053:reg32_t < 0xffffffff:reg32_t;
+T_1_1055:reg8_t = cast(T_0_1054:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_1_1055:reg8_t >> 7:reg32_t ^ T_1_1055:reg8_t >> 6:reg32_t)
+         ^ (T_1_1055:reg8_t >> 5:reg32_t ^ T_1_1055:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_1_1055:reg8_t >> 3:reg32_t ^ T_1_1055:reg8_t >> 2:reg32_t)
+            ^ (T_1_1055:reg8_t >> 1:reg32_t ^ T_1_1055:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_0_1054:reg32_t ^ (T_32t2_1053:reg32_t ^ 0xffffffff:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_0_1054:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t = 1:reg32_t == (1:reg32_t & T_0_1054:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t2_1053:reg32_t ^ 0xffffffff:reg32_t)
+             & (T_32t2_1053:reg32_t ^ T_0_1054:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x42077e0f_11:
+/*je     0x0000000042077e1b*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1057:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1058:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1059:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1060:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1061:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1056:reg1_t = cast(T_32t5_1061:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1056:reg1_t == false;
+label L_0_11:
+label pc_0x42077e14_13:
+/*movzbl (%edx),%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*EAX:0 Already initd input (1001, 0)*/
+
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+/*mem[1073823744]:0 Already initd input (1001, 0)*/
+
+R_EDX_8:reg32_t = 0x40014000:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t0_1062:reg32_t = R_EDX_8:reg32_t;
+T_8t2_1064:reg8_t = mem_arr_57[0x40014000:reg32_t]:reg8_t;
+T_32t1_1063:reg32_t = cast(T_8t2_1064:reg8_t)U:reg32_t;
+R_EAX_5:reg32_t = T_32t1_1063:reg32_t;
+label pc_0x4205abc5_27:
+/*mov    %eax,-0xac(%ebp)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+idx_1065:reg32_t = 0xbffff69c:reg32_t;
+val_1066:reg32_t = 0:reg32_t;
+mem_arr_57[0xbffff69c:reg32_t]:reg8_t =
+cast((val_1066:reg32_t & 0xff:reg32_t) >> 0:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff69d:reg32_t]:reg8_t =
+cast((val_1066:reg32_t & 0xff00:reg32_t) >> 8:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff69e:reg32_t]:reg8_t =
+cast((val_1066:reg32_t & 0xff0000:reg32_t) >> 0x10:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff69f:reg32_t]:reg8_t =
+cast((val_1066:reg32_t & 0xff000000:reg32_t) >> 0x18:reg32_t)L:reg8_t;
+/*EAX:0 Already initd input (1001, 0)*/
+
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1069:reg32_t = R_EBP_0:reg32_t;
+T_32t1_1068:reg32_t = T_32t2_1069:reg32_t + 0xffffff54:reg32_t;
+T_32t3_1070:reg32_t = R_EAX_5:reg32_t;
+idx_1071:reg32_t = T_32t1_1068:reg32_t;
+val_1072:reg32_t = T_32t3_1070:reg32_t;
+mem_arr_57[0xbffff69c:reg32_t]:reg8_t =
+cast((val_1072:reg32_t & 0xff:reg32_t) >> 0:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff69d:reg32_t]:reg8_t =
+cast((val_1072:reg32_t & 0xff00:reg32_t) >> 8:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff69e:reg32_t]:reg8_t =
+cast((val_1072:reg32_t & 0xff0000:reg32_t) >> 0x10:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff69f:reg32_t]:reg8_t =
+cast((val_1072:reg32_t & 0xff000000:reg32_t) >> 0x18:reg32_t)L:reg8_t;
+label pc_0x4205abd5_31:
+/*cmpl   $0xffffffff,-0xac(%ebp)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*mem[3221223068]:0 Already initd input (1001, 0)*/
+
+idx_1073:reg32_t = 0xbffff69d:reg32_t;
+val_1074:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69d:reg32_t]:reg8_t =
+cast((val_1074:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1075:reg32_t = 0xbffff69e:reg32_t;
+val_1076:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69e:reg32_t]:reg8_t =
+cast((val_1076:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1077:reg32_t = 0xbffff69f:reg32_t;
+val_1078:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69f:reg32_t]:reg8_t =
+cast((val_1078:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+EFLAGS_9:reg32_t = 0x202:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t5_1084:reg32_t = R_EBP_0:reg32_t;
+T_32t4_1083:reg32_t = T_32t5_1084:reg32_t + 0xffffff54:reg32_t;
+T_32t2_1081:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff69c:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff69d:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff69e:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff69f:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 6:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1081:reg32_t;
+R_CC_DEP2_18:reg32_t = 0xffffffff:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_3_1085:reg32_t = T_32t2_1081:reg32_t - 0xffffffff:reg32_t;
+R_CF_10:reg1_t = T_32t2_1081:reg32_t < 0xffffffff:reg32_t;
+T_4_1086:reg8_t = cast(T_3_1085:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_4_1086:reg8_t >> 7:reg32_t ^ T_4_1086:reg8_t >> 6:reg32_t)
+         ^ (T_4_1086:reg8_t >> 5:reg32_t ^ T_4_1086:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_4_1086:reg8_t >> 3:reg32_t ^ T_4_1086:reg8_t >> 2:reg32_t)
+            ^ (T_4_1086:reg8_t >> 1:reg32_t ^ T_4_1086:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_3_1085:reg32_t ^ (T_32t2_1081:reg32_t ^ 0xffffffff:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_3_1085:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t = 1:reg32_t == (1:reg32_t & T_3_1085:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t2_1081:reg32_t ^ 0xffffffff:reg32_t)
+             & (T_32t2_1081:reg32_t ^ T_3_1085:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4205abe9_34:
+/*je     0x0000000042060270*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1088:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1089:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1090:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1091:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1092:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1087:reg1_t = cast(T_32t5_1092:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1087:reg1_t == false;
+label L_1_34:
+label pc_0x4205abf5_36:
+/*mov    -0xac(%ebp),%edx*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_EDX_8:reg32_t = 0x40014001:reg32_t;
+/*mem[3221223068]:0 Already initd input (1001, 0)*/
+
+idx_1093:reg32_t = 0xbffff69d:reg32_t;
+val_1094:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69d:reg32_t]:reg8_t =
+cast((val_1094:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1095:reg32_t = 0xbffff69e:reg32_t;
+val_1096:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69e:reg32_t]:reg8_t =
+cast((val_1096:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1097:reg32_t = 0xbffff69f:reg32_t;
+val_1098:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69f:reg32_t]:reg8_t =
+cast((val_1098:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1101:reg32_t = R_EBP_0:reg32_t;
+T_32t1_1100:reg32_t = T_32t2_1101:reg32_t + 0xffffff54:reg32_t;
+T_32t3_1102:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff69c:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff69d:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff69e:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff69f:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+R_EDX_8:reg32_t = T_32t3_1102:reg32_t;
+label pc_0x4205abfd_38:
+/*testb  $0x20,0x1(%eax,%edx,2)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+idx_1103:reg32_t = 0x42120a4b:reg32_t;
+val_1104:reg8_t = 0xd8:reg8_t;
+mem_arr_57[0x42120a4b:reg32_t]:reg8_t =
+cast((val_1104:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+/*EDX:0 Already initd input (1001, 0)*/
+
+R_EDX_8:reg32_t =
+(R_EDX_8:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_EDX_8:reg32_t =
+(R_EDX_8:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_EDX_8:reg32_t =
+(R_EDX_8:reg32_t & 0xffffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+R_EAX_5:reg32_t = 0x421209e0:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t7_1112:reg32_t = R_EDX_8:reg32_t;
+T_32t6_1111:reg32_t = T_32t7_1112:reg32_t << 1:reg8_t;
+T_32t8_1113:reg32_t = R_EAX_5:reg32_t;
+T_32t5_1110:reg32_t = T_32t8_1113:reg32_t + T_32t6_1111:reg32_t;
+T_32t4_1109:reg32_t = T_32t5_1110:reg32_t + 1:reg32_t;
+/*constrain_mem_accesses*/
+
+idx_1116:reg32_t = 0x42120a4b:reg32_t;
+post_1045:reg1_t =
+post_1045:reg1_t & T_32t4_1109:reg32_t == 0x42120a4b:reg32_t;
+T_8t2_1107:reg8_t = mem_arr_57[0x42120a4b:reg32_t]:reg8_t;
+T_8t3_1108:reg8_t = T_8t2_1107:reg8_t & 0x20:reg8_t;
+R_CC_OP_16:reg32_t = 0xd:reg32_t;
+T_32t9_1114:reg32_t = cast(T_8t3_1108:reg8_t)U:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t9_1114:reg32_t;
+R_CC_DEP2_18:reg32_t = 0:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: logic*/
+
+R_CF_10:reg1_t = false;
+T_7_1115:reg8_t = cast(T_32t9_1114:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_7_1115:reg8_t >> 7:reg32_t ^ T_7_1115:reg8_t >> 6:reg32_t)
+         ^ (T_7_1115:reg8_t >> 5:reg32_t ^ T_7_1115:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_7_1115:reg8_t >> 3:reg32_t ^ T_7_1115:reg8_t >> 2:reg32_t)
+            ^ (T_7_1115:reg8_t >> 1:reg32_t ^ T_7_1115:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t = false;
+R_ZF_13:reg1_t = T_32t9_1114:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t = 1:reg32_t == (1:reg32_t & T_32t9_1114:reg32_t >> 7:reg32_t);
+R_OF_15:reg1_t = false;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4205ac02_39:
+/*jne    0x000000004205aba0*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1118:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1119:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1120:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1121:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1122:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1117:reg1_t = cast(T_32t5_1122:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1117:reg1_t == true;
+label pc_0x4205ac0b_54:
+/*cmpl   $0xffffffff,-0xac(%ebp)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*mem[3221223068]:0 Already initd input (1001, 0)*/
+
+idx_1123:reg32_t = 0xbffff69d:reg32_t;
+val_1124:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69d:reg32_t]:reg8_t =
+cast((val_1124:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1125:reg32_t = 0xbffff69e:reg32_t;
+val_1126:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69e:reg32_t]:reg8_t =
+cast((val_1126:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1127:reg32_t = 0xbffff69f:reg32_t;
+val_1128:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69f:reg32_t]:reg8_t =
+cast((val_1128:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+EFLAGS_9:reg32_t = 0x246:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t5_1134:reg32_t = R_EBP_0:reg32_t;
+T_32t4_1133:reg32_t = T_32t5_1134:reg32_t + 0xffffff54:reg32_t;
+T_32t2_1131:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff69c:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff69d:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff69e:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff69f:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 6:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1131:reg32_t;
+R_CC_DEP2_18:reg32_t = 0xffffffff:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_10_1135:reg32_t = T_32t2_1131:reg32_t - 0xffffffff:reg32_t;
+R_CF_10:reg1_t = T_32t2_1131:reg32_t < 0xffffffff:reg32_t;
+T_11_1136:reg8_t = cast(T_10_1135:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_11_1136:reg8_t >> 7:reg32_t ^ T_11_1136:reg8_t >> 6:reg32_t)
+         ^ (T_11_1136:reg8_t >> 5:reg32_t ^ T_11_1136:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_11_1136:reg8_t >> 3:reg32_t ^ T_11_1136:reg8_t >> 2:reg32_t)
+            ^ (T_11_1136:reg8_t >> 1:reg32_t ^ T_11_1136:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_10_1135:reg32_t ^ (T_32t2_1131:reg32_t ^ 0xffffffff:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_10_1135:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t =
+1:reg32_t == (1:reg32_t & T_10_1135:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t2_1131:reg32_t ^ 0xffffffff:reg32_t)
+             & (T_32t2_1131:reg32_t ^ T_10_1135:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4205ac12_55:
+/*je     0x000000004205ac31*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1138:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1139:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1140:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1141:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1142:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1137:reg1_t = cast(T_32t5_1142:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1137:reg1_t == false;
+label L_4_55:
+label pc_0x4205ac14_56:
+/*movzbl -0xac(%ebp),%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_EAX_5:reg32_t = 0x42130b80:reg32_t;
+/*mem[3221223068]:0 Already initd input (1001, 0)*/
+
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1145:reg32_t = R_EBP_0:reg32_t;
+T_32t1_1144:reg32_t = T_32t2_1145:reg32_t + 0xffffff54:reg32_t;
+T_8t4_1147:reg8_t = mem_arr_57[0xbffff69c:reg32_t]:reg8_t;
+T_32t3_1146:reg32_t = cast(T_8t4_1147:reg8_t)U:reg32_t;
+R_EAX_5:reg32_t = T_32t3_1146:reg32_t;
+label pc_0x4205ac24_59:
+/*push   %eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_ESP_1:reg32_t = 0xbffff608:reg32_t;
+idx_1148:reg32_t = 0xbffff604:reg32_t;
+val_1149:reg32_t = 0x4213030c:reg32_t;
+mem_arr_57[0xbffff604:reg32_t]:reg8_t =
+cast((val_1149:reg32_t & 0xff:reg32_t) >> 0:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff605:reg32_t]:reg8_t =
+cast((val_1149:reg32_t & 0xff00:reg32_t) >> 8:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff606:reg32_t]:reg8_t =
+cast((val_1149:reg32_t & 0xff0000:reg32_t) >> 0x10:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff607:reg32_t]:reg8_t =
+cast((val_1149:reg32_t & 0xff000000:reg32_t) >> 0x18:reg32_t)L:reg8_t;
+/*EAX:0 Already initd input (1001, 0)*/
+
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+R_ESP_1:reg32_t = 0xbffff608:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t0_1150:reg32_t = R_EAX_5:reg32_t;
+T_32t3_1153:reg32_t = R_ESP_1:reg32_t;
+T_32t2_1152:reg32_t = T_32t3_1153:reg32_t - 4:reg32_t;
+R_ESP_1:reg32_t = T_32t2_1152:reg32_t;
+idx_1154:reg32_t = T_32t2_1152:reg32_t;
+val_1155:reg32_t = T_32t0_1150:reg32_t;
+mem_arr_57[0xbffff604:reg32_t]:reg8_t =
+cast((val_1155:reg32_t & 0xff:reg32_t) >> 0:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff605:reg32_t]:reg8_t =
+cast((val_1155:reg32_t & 0xff00:reg32_t) >> 8:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff606:reg32_t]:reg8_t =
+cast((val_1155:reg32_t & 0xff0000:reg32_t) >> 0x10:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff607:reg32_t]:reg8_t =
+cast((val_1155:reg32_t & 0xff000000:reg32_t) >> 0x18:reg32_t)L:reg8_t;
+label pc_0x4207793a_68:
+/*mov    0xc(%ebp),%edx*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*EDX:0 Already initd input (1001, 0)*/
+
+R_EDX_8:reg32_t =
+(R_EDX_8:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_EDX_8:reg32_t =
+(R_EDX_8:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_EDX_8:reg32_t =
+(R_EDX_8:reg32_t & 0xffffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+/*mem[3221222916]:0 Already initd input (1001, 0)*/
+
+idx_1156:reg32_t = 0xbffff605:reg32_t;
+val_1157:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff605:reg32_t]:reg8_t =
+cast((val_1157:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1158:reg32_t = 0xbffff606:reg32_t;
+val_1159:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff606:reg32_t]:reg8_t =
+cast((val_1159:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1160:reg32_t = 0xbffff607:reg32_t;
+val_1161:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff607:reg32_t]:reg8_t =
+cast((val_1161:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+R_EBP_0:reg32_t = 0xbffff5f8:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1164:reg32_t = R_EBP_0:reg32_t;
+T_32t1_1163:reg32_t = T_32t2_1164:reg32_t + 0xc:reg32_t;
+T_32t3_1165:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff604:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff605:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff606:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff607:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+R_EDX_8:reg32_t = T_32t3_1165:reg32_t;
+label pc_0x42077945_72:
+/*cmp    %dl,-0x1(%eax)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*mem[1073823744]:0 Already initd input (1001, 0)*/
+
+/*DL:0 Already initd input (1001, 0)*/
+
+R_EAX_5:reg32_t = 0x40014001:reg32_t;
+EFLAGS_9:reg32_t = 0x202:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t5_1171:reg32_t = R_EAX_5:reg32_t;
+T_32t4_1170:reg32_t = T_32t5_1171:reg32_t + 0xffffffff:reg32_t;
+T_8t2_1168:reg8_t = mem_arr_57[0x40014000:reg32_t]:reg8_t;
+T_8t1_1167:reg8_t = cast(R_EDX_8:reg32_t)L:reg8_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 4:reg32_t;
+T_32t6_1172:reg32_t = cast(T_8t2_1168:reg8_t)U:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t6_1172:reg32_t;
+T_32t7_1173:reg32_t = cast(T_8t1_1167:reg8_t)U:reg32_t;
+R_CC_DEP2_18:reg32_t = T_32t7_1173:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_14_1174:reg32_t = T_32t6_1172:reg32_t - T_32t7_1173:reg32_t & 0xff:reg32_t;
+R_CF_10:reg1_t = T_32t6_1172:reg32_t < T_32t7_1173:reg32_t;
+T_15_1175:reg8_t = cast(T_14_1174:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_15_1175:reg8_t >> 7:reg32_t ^ T_15_1175:reg8_t >> 6:reg32_t)
+         ^ (T_15_1175:reg8_t >> 5:reg32_t ^ T_15_1175:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_15_1175:reg8_t >> 3:reg32_t ^ T_15_1175:reg8_t >> 2:reg32_t)
+            ^ (T_15_1175:reg8_t >> 1:reg32_t ^ T_15_1175:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_14_1174:reg32_t ^ (T_32t6_1172:reg32_t ^ T_32t7_1173:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_14_1174:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t = 1:reg32_t == (1:reg32_t & T_14_1174:reg32_t >> 7:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t6_1172:reg32_t ^ T_32t7_1173:reg32_t)
+             & (T_32t6_1172:reg32_t ^ T_14_1174:reg32_t))
+           >> 7:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x42077948_73:
+/*je     0x0000000042077970*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1177:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1178:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1179:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1180:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1181:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1176:reg1_t = cast(T_32t5_1181:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1176:reg1_t == true;
+label pc_0x42077974_76:
+/*movzbl %dl,%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_EAX_5:reg32_t = 0x40014000:reg32_t;
+/*DL:0 Already initd input (1001, 0)*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_8t1_1183:reg8_t = cast(R_EDX_8:reg32_t)L:reg8_t;
+T_32t0_1182:reg32_t = cast(T_8t1_1183:reg8_t)U:reg32_t;
+R_EAX_5:reg32_t = T_32t0_1182:reg32_t;
+label pc_0x42077960_78:
+/*cmp    $0xffffffff,%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*EAX:0 Already initd input (1001, 0)*/
+
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+EFLAGS_9:reg32_t = 0x202:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1186:reg32_t = R_EAX_5:reg32_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 6:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1186:reg32_t;
+R_CC_DEP2_18:reg32_t = 0xffffffff:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_17_1187:reg32_t = T_32t2_1186:reg32_t - 0xffffffff:reg32_t;
+R_CF_10:reg1_t = T_32t2_1186:reg32_t < 0xffffffff:reg32_t;
+T_18_1188:reg8_t = cast(T_17_1187:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_18_1188:reg8_t >> 7:reg32_t ^ T_18_1188:reg8_t >> 6:reg32_t)
+         ^ (T_18_1188:reg8_t >> 5:reg32_t ^ T_18_1188:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_18_1188:reg8_t >> 3:reg32_t ^ T_18_1188:reg8_t >> 2:reg32_t)
+            ^ (T_18_1188:reg8_t >> 1:reg32_t ^ T_18_1188:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_17_1187:reg32_t ^ (T_32t2_1186:reg32_t ^ 0xffffffff:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_17_1187:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t =
+1:reg32_t == (1:reg32_t & T_17_1187:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t2_1186:reg32_t ^ 0xffffffff:reg32_t)
+             & (T_32t2_1186:reg32_t ^ T_17_1187:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x42077963_79:
+/*je     0x0000000042077968*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1190:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1191:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1192:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1193:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1194:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1189:reg1_t = cast(T_32t5_1194:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1189:reg1_t == false;
+label L_6_79:
+label pc_0x4205c566_101:
+/*cmpl   $0xffffffff,-0xac(%ebp)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*mem[3221223068]:0 Already initd input (1001, 0)*/
+
+idx_1195:reg32_t = 0xbffff69d:reg32_t;
+val_1196:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69d:reg32_t]:reg8_t =
+cast((val_1196:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1197:reg32_t = 0xbffff69e:reg32_t;
+val_1198:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69e:reg32_t]:reg8_t =
+cast((val_1198:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1199:reg32_t = 0xbffff69f:reg32_t;
+val_1200:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69f:reg32_t]:reg8_t =
+cast((val_1200:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+EFLAGS_9:reg32_t = 0x46:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t5_1206:reg32_t = R_EBP_0:reg32_t;
+T_32t4_1205:reg32_t = T_32t5_1206:reg32_t + 0xffffff54:reg32_t;
+T_32t2_1203:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff69c:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff69d:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff69e:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff69f:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 6:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1203:reg32_t;
+R_CC_DEP2_18:reg32_t = 0xffffffff:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_20_1207:reg32_t = T_32t2_1203:reg32_t - 0xffffffff:reg32_t;
+R_CF_10:reg1_t = T_32t2_1203:reg32_t < 0xffffffff:reg32_t;
+T_21_1208:reg8_t = cast(T_20_1207:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_21_1208:reg8_t >> 7:reg32_t ^ T_21_1208:reg8_t >> 6:reg32_t)
+         ^ (T_21_1208:reg8_t >> 5:reg32_t ^ T_21_1208:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_21_1208:reg8_t >> 3:reg32_t ^ T_21_1208:reg8_t >> 2:reg32_t)
+            ^ (T_21_1208:reg8_t >> 1:reg32_t ^ T_21_1208:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_20_1207:reg32_t ^ (T_32t2_1203:reg32_t ^ 0xffffffff:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_20_1207:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t =
+1:reg32_t == (1:reg32_t & T_20_1207:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t2_1203:reg32_t ^ 0xffffffff:reg32_t)
+             & (T_32t2_1203:reg32_t ^ T_20_1207:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4205c56d_102:
+/*je     0x000000004205dce6*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1210:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1211:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1212:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1213:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1214:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1209:reg1_t = cast(T_32t5_1214:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1209:reg1_t == false;
+label L_7_102:
+label pc_0x4205dcd1_107:
+/*movzbl (%eax),%edi*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_EDI_3:reg32_t = 0:reg32_t;
+/*mem[1073823744]:0 Already initd input (1001, 0)*/
+
+R_EAX_5:reg32_t = 0x40014000:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t0_1215:reg32_t = R_EAX_5:reg32_t;
+T_8t2_1217:reg8_t = mem_arr_57[0x40014000:reg32_t]:reg8_t;
+T_32t1_1216:reg32_t = cast(T_8t2_1217:reg8_t)U:reg32_t;
+R_EDI_3:reg32_t = T_32t1_1216:reg32_t;
+label pc_0x4205dcd8_110:
+/*mov    %edi,-0xac(%ebp)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*mem[3221223068]:0 Already initd input (1001, 0)*/
+
+idx_1218:reg32_t = 0xbffff69d:reg32_t;
+val_1219:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69d:reg32_t]:reg8_t =
+cast((val_1219:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1220:reg32_t = 0xbffff69e:reg32_t;
+val_1221:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69e:reg32_t]:reg8_t =
+cast((val_1221:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1222:reg32_t = 0xbffff69f:reg32_t;
+val_1223:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69f:reg32_t]:reg8_t =
+cast((val_1223:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+/*EDI:0 Already initd input (1001, 0)*/
+
+R_EDI_3:reg32_t =
+(R_EDI_3:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_EDI_3:reg32_t =
+(R_EDI_3:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_EDI_3:reg32_t =
+(R_EDI_3:reg32_t & 0xffffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1226:reg32_t = R_EBP_0:reg32_t;
+T_32t1_1225:reg32_t = T_32t2_1226:reg32_t + 0xffffff54:reg32_t;
+T_32t3_1227:reg32_t = R_EDI_3:reg32_t;
+idx_1228:reg32_t = T_32t1_1225:reg32_t;
+val_1229:reg32_t = T_32t3_1227:reg32_t;
+mem_arr_57[0xbffff69c:reg32_t]:reg8_t =
+cast((val_1229:reg32_t & 0xff:reg32_t) >> 0:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff69d:reg32_t]:reg8_t =
+cast((val_1229:reg32_t & 0xff00:reg32_t) >> 8:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff69e:reg32_t]:reg8_t =
+cast((val_1229:reg32_t & 0xff0000:reg32_t) >> 0x10:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff69f:reg32_t]:reg8_t =
+cast((val_1229:reg32_t & 0xff000000:reg32_t) >> 0x18:reg32_t)L:reg8_t;
+label pc_0x4205c59a_114:
+/*mov    -0xac(%ebp),%esi*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_ESI_2:reg32_t = 0x4212d980:reg32_t;
+/*mem[3221223068]:0 Already initd input (1001, 0)*/
+
+idx_1230:reg32_t = 0xbffff69d:reg32_t;
+val_1231:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69d:reg32_t]:reg8_t =
+cast((val_1231:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1232:reg32_t = 0xbffff69e:reg32_t;
+val_1233:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69e:reg32_t]:reg8_t =
+cast((val_1233:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1234:reg32_t = 0xbffff69f:reg32_t;
+val_1235:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69f:reg32_t]:reg8_t =
+cast((val_1235:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1238:reg32_t = R_EBP_0:reg32_t;
+T_32t1_1237:reg32_t = T_32t2_1238:reg32_t + 0xffffff54:reg32_t;
+T_32t3_1239:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff69c:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff69d:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff69e:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff69f:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+R_ESI_2:reg32_t = T_32t3_1239:reg32_t;
+label pc_0x4205c5a1_116:
+/*cmpl   $0xffffffff,-0xac(%ebp)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*mem[3221223068]:0 Already initd input (1001, 0)*/
+
+idx_1240:reg32_t = 0xbffff69d:reg32_t;
+val_1241:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69d:reg32_t]:reg8_t =
+cast((val_1241:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1242:reg32_t = 0xbffff69e:reg32_t;
+val_1243:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69e:reg32_t]:reg8_t =
+cast((val_1243:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1244:reg32_t = 0xbffff69f:reg32_t;
+val_1245:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69f:reg32_t]:reg8_t =
+cast((val_1245:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+EFLAGS_9:reg32_t = 0x203:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t5_1251:reg32_t = R_EBP_0:reg32_t;
+T_32t4_1250:reg32_t = T_32t5_1251:reg32_t + 0xffffff54:reg32_t;
+T_32t2_1248:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff69c:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff69d:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff69e:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff69f:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 6:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1248:reg32_t;
+R_CC_DEP2_18:reg32_t = 0xffffffff:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_24_1252:reg32_t = T_32t2_1248:reg32_t - 0xffffffff:reg32_t;
+R_CF_10:reg1_t = T_32t2_1248:reg32_t < 0xffffffff:reg32_t;
+T_25_1253:reg8_t = cast(T_24_1252:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_25_1253:reg8_t >> 7:reg32_t ^ T_25_1253:reg8_t >> 6:reg32_t)
+         ^ (T_25_1253:reg8_t >> 5:reg32_t ^ T_25_1253:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_25_1253:reg8_t >> 3:reg32_t ^ T_25_1253:reg8_t >> 2:reg32_t)
+            ^ (T_25_1253:reg8_t >> 1:reg32_t ^ T_25_1253:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_24_1252:reg32_t ^ (T_32t2_1248:reg32_t ^ 0xffffffff:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_24_1252:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t =
+1:reg32_t == (1:reg32_t & T_24_1252:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t2_1248:reg32_t ^ 0xffffffff:reg32_t)
+             & (T_32t2_1248:reg32_t ^ T_24_1252:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4205c5b5_119:
+/*cmpl   $0xffffffff,-0xac(%ebp)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*mem[3221223068]:0 Already initd input (1001, 0)*/
+
+idx_1254:reg32_t = 0xbffff69d:reg32_t;
+val_1255:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69d:reg32_t]:reg8_t =
+cast((val_1255:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1256:reg32_t = 0xbffff69e:reg32_t;
+val_1257:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69e:reg32_t]:reg8_t =
+cast((val_1257:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1258:reg32_t = 0xbffff69f:reg32_t;
+val_1259:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69f:reg32_t]:reg8_t =
+cast((val_1259:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t5_1265:reg32_t = R_EBP_0:reg32_t;
+T_32t4_1264:reg32_t = T_32t5_1265:reg32_t + 0xffffff54:reg32_t;
+T_32t2_1262:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff69c:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff69d:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff69e:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff69f:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 6:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1262:reg32_t;
+R_CC_DEP2_18:reg32_t = 0xffffffff:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_28_1266:reg32_t = T_32t2_1262:reg32_t - 0xffffffff:reg32_t;
+R_CF_10:reg1_t = T_32t2_1262:reg32_t < 0xffffffff:reg32_t;
+T_29_1267:reg8_t = cast(T_28_1266:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_29_1267:reg8_t >> 7:reg32_t ^ T_29_1267:reg8_t >> 6:reg32_t)
+         ^ (T_29_1267:reg8_t >> 5:reg32_t ^ T_29_1267:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_29_1267:reg8_t >> 3:reg32_t ^ T_29_1267:reg8_t >> 2:reg32_t)
+            ^ (T_29_1267:reg8_t >> 1:reg32_t ^ T_29_1267:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_28_1266:reg32_t ^ (T_32t2_1262:reg32_t ^ 0xffffffff:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_28_1266:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t =
+1:reg32_t == (1:reg32_t & T_28_1266:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t2_1262:reg32_t ^ 0xffffffff:reg32_t)
+             & (T_32t2_1262:reg32_t ^ T_28_1266:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4205c5bc_120:
+/*je     0x000000004205fb85*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1269:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1270:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1271:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1272:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1273:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1268:reg1_t = cast(T_32t5_1273:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1268:reg1_t == false;
+label L_8_120:
+label pc_0x4205c5c2_121:
+/*cmp    $0x2d,%esi*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*ESI:0 Already initd input (1001, 0)*/
+
+R_ESI_2:reg32_t =
+(R_ESI_2:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_ESI_2:reg32_t =
+(R_ESI_2:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_ESI_2:reg32_t =
+(R_ESI_2:reg32_t & 0xffffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1276:reg32_t = R_ESI_2:reg32_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 6:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1276:reg32_t;
+R_CC_DEP2_18:reg32_t = 0x2d:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_30_1277:reg32_t = T_32t2_1276:reg32_t - 0x2d:reg32_t;
+R_CF_10:reg1_t = T_32t2_1276:reg32_t < 0x2d:reg32_t;
+T_31_1278:reg8_t = cast(T_30_1277:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_31_1278:reg8_t >> 7:reg32_t ^ T_31_1278:reg8_t >> 6:reg32_t)
+         ^ (T_31_1278:reg8_t >> 5:reg32_t ^ T_31_1278:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_31_1278:reg8_t >> 3:reg32_t ^ T_31_1278:reg8_t >> 2:reg32_t)
+            ^ (T_31_1278:reg8_t >> 1:reg32_t ^ T_31_1278:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_30_1277:reg32_t ^ (T_32t2_1276:reg32_t ^ 0x2d:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_30_1277:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t =
+1:reg32_t == (1:reg32_t & T_30_1277:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t2_1276:reg32_t ^ 0x2d:reg32_t)
+             & (T_32t2_1276:reg32_t ^ T_30_1277:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4205c5c5_122:
+/*je     0x000000004205dbf5*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1280:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1281:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1282:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1283:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1284:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1279:reg1_t = cast(T_32t5_1284:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1279:reg1_t == false;
+label L_9_122:
+label pc_0x4205c5cb_123:
+/*cmp    $0x2b,%esi*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*ESI:0 Already initd input (1001, 0)*/
+
+R_ESI_2:reg32_t =
+(R_ESI_2:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_ESI_2:reg32_t =
+(R_ESI_2:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_ESI_2:reg32_t =
+(R_ESI_2:reg32_t & 0xffffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1287:reg32_t = R_ESI_2:reg32_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 6:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1287:reg32_t;
+R_CC_DEP2_18:reg32_t = 0x2b:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_32_1288:reg32_t = T_32t2_1287:reg32_t - 0x2b:reg32_t;
+R_CF_10:reg1_t = T_32t2_1287:reg32_t < 0x2b:reg32_t;
+T_33_1289:reg8_t = cast(T_32_1288:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_33_1289:reg8_t >> 7:reg32_t ^ T_33_1289:reg8_t >> 6:reg32_t)
+         ^ (T_33_1289:reg8_t >> 5:reg32_t ^ T_33_1289:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_33_1289:reg8_t >> 3:reg32_t ^ T_33_1289:reg8_t >> 2:reg32_t)
+            ^ (T_33_1289:reg8_t >> 1:reg32_t ^ T_33_1289:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_32_1288:reg32_t ^ (T_32t2_1287:reg32_t ^ 0x2b:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_32_1288:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t =
+1:reg32_t == (1:reg32_t & T_32_1288:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t2_1287:reg32_t ^ 0x2b:reg32_t)
+             & (T_32t2_1287:reg32_t ^ T_32_1288:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4205c5ce_124:
+/*je     0x000000004205dbf5*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1291:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1292:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1293:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1294:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1295:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1290:reg1_t = cast(T_32t5_1295:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1290:reg1_t == false;
+label L_10_124:
+label pc_0x4205c5de_128:
+/*cmpl   $0x30,-0xac(%ebp)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*mem[3221223068]:0 Already initd input (1001, 0)*/
+
+idx_1296:reg32_t = 0xbffff69d:reg32_t;
+val_1297:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69d:reg32_t]:reg8_t =
+cast((val_1297:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1298:reg32_t = 0xbffff69e:reg32_t;
+val_1299:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69e:reg32_t]:reg8_t =
+cast((val_1299:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1300:reg32_t = 0xbffff69f:reg32_t;
+val_1301:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69f:reg32_t]:reg8_t =
+cast((val_1301:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+EFLAGS_9:reg32_t = 0x286:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t5_1307:reg32_t = R_EBP_0:reg32_t;
+T_32t4_1306:reg32_t = T_32t5_1307:reg32_t + 0xffffff54:reg32_t;
+T_32t2_1304:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff69c:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff69d:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff69e:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff69f:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 6:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1304:reg32_t;
+R_CC_DEP2_18:reg32_t = 0x30:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_35_1308:reg32_t = T_32t2_1304:reg32_t - 0x30:reg32_t;
+R_CF_10:reg1_t = T_32t2_1304:reg32_t < 0x30:reg32_t;
+T_36_1309:reg8_t = cast(T_35_1308:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_36_1309:reg8_t >> 7:reg32_t ^ T_36_1309:reg8_t >> 6:reg32_t)
+         ^ (T_36_1309:reg8_t >> 5:reg32_t ^ T_36_1309:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_36_1309:reg8_t >> 3:reg32_t ^ T_36_1309:reg8_t >> 2:reg32_t)
+            ^ (T_36_1309:reg8_t >> 1:reg32_t ^ T_36_1309:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_35_1308:reg32_t ^ (T_32t2_1304:reg32_t ^ 0x30:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_35_1308:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t =
+1:reg32_t == (1:reg32_t & T_35_1308:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t2_1304:reg32_t ^ 0x30:reg32_t)
+             & (T_32t2_1304:reg32_t ^ T_35_1308:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4205c5e5_129:
+/*je     0x000000004205d9f0*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1311:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1312:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1313:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1314:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1315:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1310:reg1_t = cast(T_32t5_1315:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1310:reg1_t == false;
+label L_11_129:
+label pc_0x4205c60e_139:
+/*cmpl   $0xffffffff,-0xac(%ebp)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*mem[3221223068]:0 Already initd input (1001, 0)*/
+
+idx_1316:reg32_t = 0xbffff69d:reg32_t;
+val_1317:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69d:reg32_t]:reg8_t =
+cast((val_1317:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1318:reg32_t = 0xbffff69e:reg32_t;
+val_1319:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69e:reg32_t]:reg8_t =
+cast((val_1319:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1320:reg32_t = 0xbffff69f:reg32_t;
+val_1321:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69f:reg32_t]:reg8_t =
+cast((val_1321:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+EFLAGS_9:reg32_t = 0x246:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t5_1327:reg32_t = R_EBP_0:reg32_t;
+T_32t4_1326:reg32_t = T_32t5_1327:reg32_t + 0xffffff54:reg32_t;
+T_32t2_1324:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff69c:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff69d:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff69e:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff69f:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 6:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1324:reg32_t;
+R_CC_DEP2_18:reg32_t = 0xffffffff:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_38_1328:reg32_t = T_32t2_1324:reg32_t - 0xffffffff:reg32_t;
+R_CF_10:reg1_t = T_32t2_1324:reg32_t < 0xffffffff:reg32_t;
+T_39_1329:reg8_t = cast(T_38_1328:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_39_1329:reg8_t >> 7:reg32_t ^ T_39_1329:reg8_t >> 6:reg32_t)
+         ^ (T_39_1329:reg8_t >> 5:reg32_t ^ T_39_1329:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_39_1329:reg8_t >> 3:reg32_t ^ T_39_1329:reg8_t >> 2:reg32_t)
+            ^ (T_39_1329:reg8_t >> 1:reg32_t ^ T_39_1329:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_38_1328:reg32_t ^ (T_32t2_1324:reg32_t ^ 0xffffffff:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_38_1328:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t =
+1:reg32_t == (1:reg32_t & T_38_1328:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t2_1324:reg32_t ^ 0xffffffff:reg32_t)
+             & (T_32t2_1324:reg32_t ^ T_38_1328:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4205c615_140:
+/*je     0x000000004205c663*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1331:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1332:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1333:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1334:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1335:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1330:reg1_t = cast(T_32t5_1335:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1330:reg1_t == false;
+label L_12_140:
+label pc_0x4205c636_148:
+/*mov    -0xac(%ebp),%esi*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_ESI_2:reg32_t = 0xffffffff:reg32_t;
+/*mem[3221223068]:0 Already initd input (1001, 0)*/
+
+idx_1336:reg32_t = 0xbffff69d:reg32_t;
+val_1337:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69d:reg32_t]:reg8_t =
+cast((val_1337:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1338:reg32_t = 0xbffff69e:reg32_t;
+val_1339:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69e:reg32_t]:reg8_t =
+cast((val_1339:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1340:reg32_t = 0xbffff69f:reg32_t;
+val_1341:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69f:reg32_t]:reg8_t =
+cast((val_1341:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1344:reg32_t = R_EBP_0:reg32_t;
+T_32t1_1343:reg32_t = T_32t2_1344:reg32_t + 0xffffff54:reg32_t;
+T_32t3_1345:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff69c:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff69d:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff69e:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff69f:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+R_ESI_2:reg32_t = T_32t3_1345:reg32_t;
+label pc_0x4205c63e_150:
+/*testb  $0x8,0x1(%eax,%esi,2)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+idx_1346:reg32_t = 0x42120a4b:reg32_t;
+val_1347:reg8_t = 0xd8:reg8_t;
+mem_arr_57[0x42120a4b:reg32_t]:reg8_t =
+cast((val_1347:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+/*ESI:0 Already initd input (1001, 0)*/
+
+R_ESI_2:reg32_t =
+(R_ESI_2:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_ESI_2:reg32_t =
+(R_ESI_2:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_ESI_2:reg32_t =
+(R_ESI_2:reg32_t & 0xffffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+R_EAX_5:reg32_t = 0x421209e0:reg32_t;
+EFLAGS_9:reg32_t = 0x287:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t7_1355:reg32_t = R_ESI_2:reg32_t;
+T_32t6_1354:reg32_t = T_32t7_1355:reg32_t << 1:reg8_t;
+T_32t8_1356:reg32_t = R_EAX_5:reg32_t;
+T_32t5_1353:reg32_t = T_32t8_1356:reg32_t + T_32t6_1354:reg32_t;
+T_32t4_1352:reg32_t = T_32t5_1353:reg32_t + 1:reg32_t;
+/*constrain_mem_accesses*/
+
+idx_1359:reg32_t = 0x42120a4b:reg32_t;
+post_1045:reg1_t =
+post_1045:reg1_t & T_32t4_1352:reg32_t == 0x42120a4b:reg32_t;
+T_8t2_1350:reg8_t = mem_arr_57[0x42120a4b:reg32_t]:reg8_t;
+T_8t3_1351:reg8_t = T_8t2_1350:reg8_t & 8:reg8_t;
+R_CC_OP_16:reg32_t = 0xd:reg32_t;
+T_32t9_1357:reg32_t = cast(T_8t3_1351:reg8_t)U:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t9_1357:reg32_t;
+R_CC_DEP2_18:reg32_t = 0:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: logic*/
+
+R_CF_10:reg1_t = false;
+T_41_1358:reg8_t = cast(T_32t9_1357:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_41_1358:reg8_t >> 7:reg32_t ^ T_41_1358:reg8_t >> 6:reg32_t)
+         ^ (T_41_1358:reg8_t >> 5:reg32_t ^ T_41_1358:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_41_1358:reg8_t >> 3:reg32_t ^ T_41_1358:reg8_t >> 2:reg32_t)
+            ^ (T_41_1358:reg8_t >> 1:reg32_t ^ T_41_1358:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t = false;
+R_ZF_13:reg1_t = T_32t9_1357:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t = 1:reg32_t == (1:reg32_t & T_32t9_1357:reg32_t >> 7:reg32_t);
+R_OF_15:reg1_t = false;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4205c643_151:
+/*je     0x000000004205c656*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1361:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1362:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1363:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1364:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1365:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1360:reg1_t = cast(T_32t5_1365:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1360:reg1_t == false;
+label L_13_151:
+label pc_0x4205c645_152:
+/*mov    %esi,%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_EAX_5:reg32_t = 0x421209e0:reg32_t;
+/*ESI:0 Already initd input (1001, 0)*/
+
+R_ESI_2:reg32_t =
+(R_ESI_2:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_ESI_2:reg32_t =
+(R_ESI_2:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_ESI_2:reg32_t =
+(R_ESI_2:reg32_t & 0xffffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t0_1366:reg32_t = R_ESI_2:reg32_t;
+R_EAX_5:reg32_t = T_32t0_1366:reg32_t;
+label pc_0x4205c647_153:
+/*sub    $0x30,%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*EAX:0 Already initd input (1001, 0)*/
+
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1369:reg32_t = R_EAX_5:reg32_t;
+T_32t0_1367:reg32_t = T_32t2_1369:reg32_t - 0x30:reg32_t;
+R_CC_OP_16:reg32_t = 6:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1369:reg32_t;
+R_CC_DEP2_18:reg32_t = 0x30:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_42_1370:reg32_t = T_32t2_1369:reg32_t - 0x30:reg32_t;
+R_CF_10:reg1_t = T_32t2_1369:reg32_t < 0x30:reg32_t;
+T_43_1371:reg8_t = cast(T_42_1370:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_43_1371:reg8_t >> 7:reg32_t ^ T_43_1371:reg8_t >> 6:reg32_t)
+         ^ (T_43_1371:reg8_t >> 5:reg32_t ^ T_43_1371:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_43_1371:reg8_t >> 3:reg32_t ^ T_43_1371:reg8_t >> 2:reg32_t)
+            ^ (T_43_1371:reg8_t >> 1:reg32_t ^ T_43_1371:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_42_1370:reg32_t ^ (T_32t2_1369:reg32_t ^ 0x30:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_42_1370:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t =
+1:reg32_t == (1:reg32_t & T_42_1370:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t2_1369:reg32_t ^ 0x30:reg32_t)
+             & (T_32t2_1369:reg32_t ^ T_42_1370:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+R_EAX_5:reg32_t = T_32t0_1367:reg32_t;
+label pc_0x4205c64a_154:
+/*cmp    -0xbc(%ebp),%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*EAX:0 Already initd input (1001, 0)*/
+
+/*EAX:1 Already initd input (1001, 0)*/
+
+/*EAX:2 Already initd input (1001, 0)*/
+
+/*EAX:3 Already initd input (1001, 0)*/
+
+idx_1372:reg32_t = 0xbffff68c:reg32_t;
+val_1373:reg32_t = 0xa:reg32_t;
+mem_arr_57[0xbffff68c:reg32_t]:reg8_t =
+cast((val_1373:reg32_t & 0xff:reg32_t) >> 0:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff68d:reg32_t]:reg8_t =
+cast((val_1373:reg32_t & 0xff00:reg32_t) >> 8:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff68e:reg32_t]:reg8_t =
+cast((val_1373:reg32_t & 0xff0000:reg32_t) >> 0x10:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff68f:reg32_t]:reg8_t =
+cast((val_1373:reg32_t & 0xff000000:reg32_t) >> 0x18:reg32_t)L:reg8_t;
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t5_1379:reg32_t = R_EBP_0:reg32_t;
+T_32t4_1378:reg32_t = T_32t5_1379:reg32_t + 0xffffff44:reg32_t;
+T_32t2_1376:reg32_t = R_EAX_5:reg32_t;
+T_32t1_1375:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff68c:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff68d:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff68e:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff68f:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 6:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1376:reg32_t;
+R_CC_DEP2_18:reg32_t = T_32t1_1375:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_44_1380:reg32_t = T_32t2_1376:reg32_t - T_32t1_1375:reg32_t;
+R_CF_10:reg1_t = T_32t2_1376:reg32_t < T_32t1_1375:reg32_t;
+T_45_1381:reg8_t = cast(T_44_1380:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_45_1381:reg8_t >> 7:reg32_t ^ T_45_1381:reg8_t >> 6:reg32_t)
+         ^ (T_45_1381:reg8_t >> 5:reg32_t ^ T_45_1381:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_45_1381:reg8_t >> 3:reg32_t ^ T_45_1381:reg8_t >> 2:reg32_t)
+            ^ (T_45_1381:reg8_t >> 1:reg32_t ^ T_45_1381:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_44_1380:reg32_t ^ (T_32t2_1376:reg32_t ^ T_32t1_1375:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_44_1380:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t =
+1:reg32_t == (1:reg32_t & T_44_1380:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t2_1376:reg32_t ^ T_32t1_1375:reg32_t)
+             & (T_32t2_1376:reg32_t ^ T_44_1380:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4205c650_155:
+/*jl     0x000000004205ceb2*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1383:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1384:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1385:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1386:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1387:reg32_t = cast(R_SF_14:reg1_t ^ R_OF_15:reg1_t)U:reg32_t;
+T_1t0_1382:reg1_t = cast(T_32t5_1387:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1382:reg1_t == true;
+label pc_0x4205ced0_171:
+/*movzbl -0xac(%ebp),%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_EAX_5:reg32_t = 0x400:reg32_t;
+/*mem[3221223068]:0 Already initd input (1001, 0)*/
+
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1390:reg32_t = R_EBP_0:reg32_t;
+T_32t1_1389:reg32_t = T_32t2_1390:reg32_t + 0xffffff54:reg32_t;
+T_8t4_1392:reg8_t = mem_arr_57[0xbffff69c:reg32_t]:reg8_t;
+T_32t3_1391:reg32_t = cast(T_8t4_1392:reg8_t)U:reg32_t;
+R_EAX_5:reg32_t = T_32t3_1391:reg32_t;
+label pc_0x4205cee3_174:
+/*mov    %al,(%ecx,%edx,1)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+idx_1393:reg32_t = 0xbffff210:reg32_t;
+val_1394:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff210:reg32_t]:reg8_t =
+cast((val_1394:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+/*AL:0 Already initd input (1001, 0)*/
+
+R_EDX_8:reg32_t = 0xbffff210:reg32_t;
+R_ECX_7:reg32_t = 0:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t3_1398:reg32_t = R_EDX_8:reg32_t;
+T_32t4_1399:reg32_t = R_ECX_7:reg32_t;
+T_32t1_1396:reg32_t = T_32t4_1399:reg32_t + T_32t3_1398:reg32_t;
+T_8t5_1400:reg8_t = cast(R_EAX_5:reg32_t)L:reg8_t;
+idx_1401:reg32_t = T_32t1_1396:reg32_t;
+val_1402:reg8_t = T_8t5_1400:reg8_t;
+mem_arr_57[0xbffff210:reg32_t]:reg8_t =
+cast((val_1402:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+label pc_0x4205cf02_181:
+/*cmpl   $0xffffffff,-0xac(%ebp)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*mem[3221223068]:0 Already initd input (1001, 0)*/
+
+idx_1403:reg32_t = 0xbffff69d:reg32_t;
+val_1404:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69d:reg32_t]:reg8_t =
+cast((val_1404:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1405:reg32_t = 0xbffff69e:reg32_t;
+val_1406:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69e:reg32_t]:reg8_t =
+cast((val_1406:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+idx_1407:reg32_t = 0xbffff69f:reg32_t;
+val_1408:reg8_t = 0:reg8_t;
+mem_arr_57[0xbffff69f:reg32_t]:reg8_t =
+cast((val_1408:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+EFLAGS_9:reg32_t = 0x282:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t5_1414:reg32_t = R_EBP_0:reg32_t;
+T_32t4_1413:reg32_t = T_32t5_1414:reg32_t + 0xffffff54:reg32_t;
+T_32t2_1411:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff69c:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff69d:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff69e:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff69f:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 6:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1411:reg32_t;
+R_CC_DEP2_18:reg32_t = 0xffffffff:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_48_1415:reg32_t = T_32t2_1411:reg32_t - 0xffffffff:reg32_t;
+R_CF_10:reg1_t = T_32t2_1411:reg32_t < 0xffffffff:reg32_t;
+T_49_1416:reg8_t = cast(T_48_1415:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_49_1416:reg8_t >> 7:reg32_t ^ T_49_1416:reg8_t >> 6:reg32_t)
+         ^ (T_49_1416:reg8_t >> 5:reg32_t ^ T_49_1416:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_49_1416:reg8_t >> 3:reg32_t ^ T_49_1416:reg8_t >> 2:reg32_t)
+            ^ (T_49_1416:reg8_t >> 1:reg32_t ^ T_49_1416:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_48_1415:reg32_t ^ (T_32t2_1411:reg32_t ^ 0xffffffff:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_48_1415:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t =
+1:reg32_t == (1:reg32_t & T_48_1415:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t2_1411:reg32_t ^ 0xffffffff:reg32_t)
+             & (T_32t2_1411:reg32_t ^ T_48_1415:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4205cf0f_183:
+/*je     0x000000004205cfa5*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1418:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1419:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1420:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1421:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1422:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1417:reg1_t = cast(T_32t5_1422:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1417:reg1_t == false;
+label L_15_183:
+label pc_0x4205ca96_222:
+/*movzbl (%ecx),%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_EAX_5:reg32_t = 0x421209e0:reg32_t;
+/*mem[3221221904]:0 Already initd input (1001, 0)*/
+
+R_ECX_7:reg32_t = 0xbffff210:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t0_1423:reg32_t = R_ECX_7:reg32_t;
+T_8t2_1425:reg8_t = mem_arr_57[0xbffff210:reg32_t]:reg8_t;
+T_32t1_1424:reg32_t = cast(T_8t2_1425:reg8_t)U:reg32_t;
+R_EAX_5:reg32_t = T_32t1_1424:reg32_t;
+label pc_0x4205ca99_223:
+/*cmp    $0x2b,%al*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*AL:0 Already initd input (1001, 0)*/
+
+EFLAGS_9:reg32_t = 0x246:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_8t0_1426:reg8_t = cast(R_EAX_5:reg32_t)L:reg8_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 4:reg32_t;
+T_32t3_1429:reg32_t = cast(T_8t0_1426:reg8_t)U:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t3_1429:reg32_t;
+R_CC_DEP2_18:reg32_t = 0x2b:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_52_1431:reg32_t = T_32t3_1429:reg32_t - 0x2b:reg32_t & 0xff:reg32_t;
+R_CF_10:reg1_t = T_32t3_1429:reg32_t < 0x2b:reg32_t;
+T_53_1432:reg8_t = cast(T_52_1431:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_53_1432:reg8_t >> 7:reg32_t ^ T_53_1432:reg8_t >> 6:reg32_t)
+         ^ (T_53_1432:reg8_t >> 5:reg32_t ^ T_53_1432:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_53_1432:reg8_t >> 3:reg32_t ^ T_53_1432:reg8_t >> 2:reg32_t)
+            ^ (T_53_1432:reg8_t >> 1:reg32_t ^ T_53_1432:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_52_1431:reg32_t ^ (T_32t3_1429:reg32_t ^ 0x2b:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_52_1431:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t = 1:reg32_t == (1:reg32_t & T_52_1431:reg32_t >> 7:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t3_1429:reg32_t ^ 0x2b:reg32_t)
+             & (T_32t3_1429:reg32_t ^ T_52_1431:reg32_t))
+           >> 7:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4205ca9b_224:
+/*je     0x000000004205caa5*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1434:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1435:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1436:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1437:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1438:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1433:reg1_t = cast(T_32t5_1438:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1433:reg1_t == false;
+label L_16_224:
+label pc_0x4205ca9d_225:
+/*cmp    $0x2d,%al*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*AL:0 Already initd input (1001, 0)*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_8t0_1439:reg8_t = cast(R_EAX_5:reg32_t)L:reg8_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 4:reg32_t;
+T_32t3_1442:reg32_t = cast(T_8t0_1439:reg8_t)U:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t3_1442:reg32_t;
+R_CC_DEP2_18:reg32_t = 0x2d:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_54_1444:reg32_t = T_32t3_1442:reg32_t - 0x2d:reg32_t & 0xff:reg32_t;
+R_CF_10:reg1_t = T_32t3_1442:reg32_t < 0x2d:reg32_t;
+T_55_1445:reg8_t = cast(T_54_1444:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_55_1445:reg8_t >> 7:reg32_t ^ T_55_1445:reg8_t >> 6:reg32_t)
+         ^ (T_55_1445:reg8_t >> 5:reg32_t ^ T_55_1445:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_55_1445:reg8_t >> 3:reg32_t ^ T_55_1445:reg8_t >> 2:reg32_t)
+            ^ (T_55_1445:reg8_t >> 1:reg32_t ^ T_55_1445:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_54_1444:reg32_t ^ (T_32t3_1442:reg32_t ^ 0x2d:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_54_1444:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t = 1:reg32_t == (1:reg32_t & T_54_1444:reg32_t >> 7:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t3_1442:reg32_t ^ 0x2d:reg32_t)
+             & (T_32t3_1442:reg32_t ^ T_54_1444:reg32_t))
+           >> 7:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4205ca9f_226:
+/*jne    0x000000004205c67e*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1447:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1448:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1449:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1450:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1451:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1446:reg1_t = cast(T_32t5_1451:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1446:reg1_t == false;
+label L_17_226:
+label pc_0x4202d04f_1057:
+/*movsbl (%ecx),%edx*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_EDX_8:reg32_t = 0xbffff210:reg32_t;
+/*mem[3221221904]:0 Already initd input (1001, 0)*/
+
+R_ECX_7:reg32_t = 0xbffff210:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t0_1452:reg32_t = R_ECX_7:reg32_t;
+T_8t2_1454:reg8_t = mem_arr_57[0xbffff210:reg32_t]:reg8_t;
+T_32t1_1453:reg32_t = cast(T_8t2_1454:reg8_t)S:reg32_t;
+R_EDX_8:reg32_t = T_32t1_1453:reg32_t;
+label pc_0x4202d054_1059:
+/*testb  $0x20,0x1(%eax,%edx,2)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+idx_1455:reg32_t = 0x42120a4b:reg32_t;
+val_1456:reg8_t = 0xd8:reg8_t;
+mem_arr_57[0x42120a4b:reg32_t]:reg8_t =
+cast((val_1456:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+/*EDX:0 Already initd input (1001, 0)*/
+
+R_EDX_8:reg32_t =
+(R_EDX_8:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_EDX_8:reg32_t =
+(R_EDX_8:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_EDX_8:reg32_t =
+(R_EDX_8:reg32_t & 0xffffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+R_EAX_5:reg32_t = 0x421209e0:reg32_t;
+EFLAGS_9:reg32_t = 0x283:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t7_1464:reg32_t = R_EDX_8:reg32_t;
+T_32t6_1463:reg32_t = T_32t7_1464:reg32_t << 1:reg8_t;
+T_32t8_1465:reg32_t = R_EAX_5:reg32_t;
+T_32t5_1462:reg32_t = T_32t8_1465:reg32_t + T_32t6_1463:reg32_t;
+T_32t4_1461:reg32_t = T_32t5_1462:reg32_t + 1:reg32_t;
+/*constrain_mem_accesses*/
+
+idx_1468:reg32_t = 0x42120a4b:reg32_t;
+post_1045:reg1_t =
+post_1045:reg1_t & T_32t4_1461:reg32_t == 0x42120a4b:reg32_t;
+T_8t2_1459:reg8_t = mem_arr_57[0x42120a4b:reg32_t]:reg8_t;
+T_8t3_1460:reg8_t = T_8t2_1459:reg8_t & 0x20:reg8_t;
+R_CC_OP_16:reg32_t = 0xd:reg32_t;
+T_32t9_1466:reg32_t = cast(T_8t3_1460:reg8_t)U:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t9_1466:reg32_t;
+R_CC_DEP2_18:reg32_t = 0:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: logic*/
+
+R_CF_10:reg1_t = false;
+T_58_1467:reg8_t = cast(T_32t9_1466:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_58_1467:reg8_t >> 7:reg32_t ^ T_58_1467:reg8_t >> 6:reg32_t)
+         ^ (T_58_1467:reg8_t >> 5:reg32_t ^ T_58_1467:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_58_1467:reg8_t >> 3:reg32_t ^ T_58_1467:reg8_t >> 2:reg32_t)
+            ^ (T_58_1467:reg8_t >> 1:reg32_t ^ T_58_1467:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t = false;
+R_ZF_13:reg1_t = T_32t9_1466:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t = 1:reg32_t == (1:reg32_t & T_32t9_1466:reg32_t >> 7:reg32_t);
+R_OF_15:reg1_t = false;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4202d059_1060:
+/*je     0x000000004202d060*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1470:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1471:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1472:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1473:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1474:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1469:reg1_t = cast(T_32t5_1474:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1469:reg1_t == true;
+label pc_0x4202d060_1061:
+/*movzbl (%ecx),%edx*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*EDX:0 Already initd input (1001, 0)*/
+
+R_EDX_8:reg32_t =
+(R_EDX_8:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_EDX_8:reg32_t =
+(R_EDX_8:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_EDX_8:reg32_t =
+(R_EDX_8:reg32_t & 0xffffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+/*mem[3221221904]:0 Already initd input (1001, 0)*/
+
+R_ECX_7:reg32_t = 0xbffff210:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t0_1475:reg32_t = R_ECX_7:reg32_t;
+T_8t2_1477:reg8_t = mem_arr_57[0xbffff210:reg32_t]:reg8_t;
+T_32t1_1476:reg32_t = cast(T_8t2_1477:reg8_t)U:reg32_t;
+R_EDX_8:reg32_t = T_32t1_1476:reg32_t;
+label pc_0x4202d063_1062:
+/*test   %dl,%dl*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*DL:0 Already initd input (1001, 0)*/
+
+/*DL:0 Already initd input (1001, 0)*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_8t2_1480:reg8_t = cast(R_EDX_8:reg32_t)L:reg8_t;
+R_CC_OP_16:reg32_t = 0xd:reg32_t;
+T_32t3_1481:reg32_t = cast(T_8t2_1480:reg8_t)U:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t3_1481:reg32_t;
+R_CC_DEP2_18:reg32_t = 0:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: logic*/
+
+R_CF_10:reg1_t = false;
+T_59_1482:reg8_t = cast(T_32t3_1481:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_59_1482:reg8_t >> 7:reg32_t ^ T_59_1482:reg8_t >> 6:reg32_t)
+         ^ (T_59_1482:reg8_t >> 5:reg32_t ^ T_59_1482:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_59_1482:reg8_t >> 3:reg32_t ^ T_59_1482:reg8_t >> 2:reg32_t)
+            ^ (T_59_1482:reg8_t >> 1:reg32_t ^ T_59_1482:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t = false;
+R_ZF_13:reg1_t = T_32t3_1481:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t = 1:reg32_t == (1:reg32_t & T_32t3_1481:reg32_t >> 7:reg32_t);
+R_OF_15:reg1_t = false;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4202d065_1063:
+/*je     0x000000004202d1e0*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1484:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1485:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1486:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1487:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1488:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1483:reg1_t = cast(T_32t5_1488:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1483:reg1_t == false;
+label L_19_1063:
+label pc_0x4202d072_1065:
+/*cmp    $0x2d,%dl*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*DL:0 Already initd input (1001, 0)*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_8t2_1491:reg8_t = cast(R_EDX_8:reg32_t)L:reg8_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 4:reg32_t;
+T_32t3_1492:reg32_t = cast(T_8t2_1491:reg8_t)U:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t3_1492:reg32_t;
+R_CC_DEP2_18:reg32_t = 0x2d:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_60_1494:reg32_t = T_32t3_1492:reg32_t - 0x2d:reg32_t & 0xff:reg32_t;
+R_CF_10:reg1_t = T_32t3_1492:reg32_t < 0x2d:reg32_t;
+T_61_1495:reg8_t = cast(T_60_1494:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_61_1495:reg8_t >> 7:reg32_t ^ T_61_1495:reg8_t >> 6:reg32_t)
+         ^ (T_61_1495:reg8_t >> 5:reg32_t ^ T_61_1495:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_61_1495:reg8_t >> 3:reg32_t ^ T_61_1495:reg8_t >> 2:reg32_t)
+            ^ (T_61_1495:reg8_t >> 1:reg32_t ^ T_61_1495:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_60_1494:reg32_t ^ (T_32t3_1492:reg32_t ^ 0x2d:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_60_1494:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t = 1:reg32_t == (1:reg32_t & T_60_1494:reg32_t >> 7:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t3_1492:reg32_t ^ 0x2d:reg32_t)
+             & (T_32t3_1492:reg32_t ^ T_60_1494:reg32_t))
+           >> 7:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4202d075_1066:
+/*je     0x000000004202d622*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1497:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1498:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1499:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1500:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1501:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1496:reg1_t = cast(T_32t5_1501:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1496:reg1_t == false;
+label L_20_1066:
+label pc_0x4202d07f_1069:
+/*cmp    $0x2b,%dl*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*DL:0 Already initd input (1001, 0)*/
+
+EFLAGS_9:reg32_t = 0x202:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_8t2_1504:reg8_t = cast(R_EDX_8:reg32_t)L:reg8_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 4:reg32_t;
+T_32t3_1505:reg32_t = cast(T_8t2_1504:reg8_t)U:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t3_1505:reg32_t;
+R_CC_DEP2_18:reg32_t = 0x2b:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_63_1507:reg32_t = T_32t3_1505:reg32_t - 0x2b:reg32_t & 0xff:reg32_t;
+R_CF_10:reg1_t = T_32t3_1505:reg32_t < 0x2b:reg32_t;
+T_64_1508:reg8_t = cast(T_63_1507:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_64_1508:reg8_t >> 7:reg32_t ^ T_64_1508:reg8_t >> 6:reg32_t)
+         ^ (T_64_1508:reg8_t >> 5:reg32_t ^ T_64_1508:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_64_1508:reg8_t >> 3:reg32_t ^ T_64_1508:reg8_t >> 2:reg32_t)
+            ^ (T_64_1508:reg8_t >> 1:reg32_t ^ T_64_1508:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_63_1507:reg32_t ^ (T_32t3_1505:reg32_t ^ 0x2b:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_63_1507:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t = 1:reg32_t == (1:reg32_t & T_63_1507:reg32_t >> 7:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t3_1505:reg32_t ^ 0x2b:reg32_t)
+             & (T_32t3_1505:reg32_t ^ T_63_1507:reg32_t))
+           >> 7:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4202d08c_1073:
+/*movzbl (%eax),%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_EAX_5:reg32_t = 0xbffff210:reg32_t;
+/*mem[3221221904]:0 Already initd input (1001, 0)*/
+
+R_EAX_5:reg32_t = 0xbffff210:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t0_1509:reg32_t = R_EAX_5:reg32_t;
+T_8t2_1511:reg8_t = mem_arr_57[0xbffff210:reg32_t]:reg8_t;
+T_32t1_1510:reg32_t = cast(T_8t2_1511:reg8_t)U:reg32_t;
+R_EAX_5:reg32_t = T_32t1_1510:reg32_t;
+label pc_0x4202d08f_1074:
+/*cmp    $0x30,%al*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*AL:0 Already initd input (1001, 0)*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_8t0_1512:reg8_t = cast(R_EAX_5:reg32_t)L:reg8_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 4:reg32_t;
+T_32t3_1515:reg32_t = cast(T_8t0_1512:reg8_t)U:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t3_1515:reg32_t;
+R_CC_DEP2_18:reg32_t = 0x30:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_67_1517:reg32_t = T_32t3_1515:reg32_t - 0x30:reg32_t & 0xff:reg32_t;
+R_CF_10:reg1_t = T_32t3_1515:reg32_t < 0x30:reg32_t;
+T_68_1518:reg8_t = cast(T_67_1517:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_68_1518:reg8_t >> 7:reg32_t ^ T_68_1518:reg8_t >> 6:reg32_t)
+         ^ (T_68_1518:reg8_t >> 5:reg32_t ^ T_68_1518:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_68_1518:reg8_t >> 3:reg32_t ^ T_68_1518:reg8_t >> 2:reg32_t)
+            ^ (T_68_1518:reg8_t >> 1:reg32_t ^ T_68_1518:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_67_1517:reg32_t ^ (T_32t3_1515:reg32_t ^ 0x30:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_67_1517:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t = 1:reg32_t == (1:reg32_t & T_67_1517:reg32_t >> 7:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t3_1515:reg32_t ^ 0x30:reg32_t)
+             & (T_32t3_1515:reg32_t ^ T_67_1517:reg32_t))
+           >> 7:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4202d091_1075:
+/*mov    %al,-0x4d(%ebp)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+idx_1519:reg32_t = 0xbffff1ab:reg32_t;
+val_1520:reg8_t = 0x40:reg8_t;
+mem_arr_57[0xbffff1ab:reg32_t]:reg8_t =
+cast((val_1520:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+/*AL:0 Already initd input (1001, 0)*/
+
+R_EBP_0:reg32_t = 0xbffff1f8:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1523:reg32_t = R_EBP_0:reg32_t;
+T_32t1_1522:reg32_t = T_32t2_1523:reg32_t + 0xffffffb3:reg32_t;
+T_8t3_1524:reg8_t = cast(R_EAX_5:reg32_t)L:reg8_t;
+idx_1525:reg32_t = T_32t1_1522:reg32_t;
+val_1526:reg8_t = T_8t3_1524:reg8_t;
+mem_arr_57[0xbffff1ab:reg32_t]:reg8_t =
+cast((val_1526:reg8_t & 0xff:reg8_t) >> 0:reg8_t)L:reg8_t;
+label pc_0x4202d094_1076:
+/*je     0x000000004202d5d0*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1528:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1529:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1530:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1531:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1532:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1527:reg1_t = cast(T_32t5_1532:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1527:reg1_t == false;
+label L_21_1076:
+label pc_0x4202d0c8_1091:
+/*movzbl -0x4d(%ebp),%ecx*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_ECX_7:reg32_t = 0xbffff210:reg32_t;
+/*mem[3221221803]:0 Already initd input (1001, 0)*/
+
+R_EBP_0:reg32_t = 0xbffff1f8:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1535:reg32_t = R_EBP_0:reg32_t;
+T_32t1_1534:reg32_t = T_32t2_1535:reg32_t + 0xffffffb3:reg32_t;
+T_8t4_1537:reg8_t = mem_arr_57[0xbffff1ab:reg32_t]:reg8_t;
+T_32t3_1536:reg32_t = cast(T_8t4_1537:reg8_t)U:reg32_t;
+R_ECX_7:reg32_t = T_32t3_1536:reg32_t;
+label pc_0x4202d0e4_1097:
+/*test   %cl,%cl*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*CL:0 Already initd input (1001, 0)*/
+
+/*CL:0 Already initd input (1001, 0)*/
+
+EFLAGS_9:reg32_t = 0x246:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_8t2_1540:reg8_t = cast(R_ECX_7:reg32_t)L:reg8_t;
+R_CC_OP_16:reg32_t = 0xd:reg32_t;
+T_32t3_1541:reg32_t = cast(T_8t2_1540:reg8_t)U:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t3_1541:reg32_t;
+R_CC_DEP2_18:reg32_t = 0:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: logic*/
+
+R_CF_10:reg1_t = false;
+T_70_1542:reg8_t = cast(T_32t3_1541:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_70_1542:reg8_t >> 7:reg32_t ^ T_70_1542:reg8_t >> 6:reg32_t)
+         ^ (T_70_1542:reg8_t >> 5:reg32_t ^ T_70_1542:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_70_1542:reg8_t >> 3:reg32_t ^ T_70_1542:reg8_t >> 2:reg32_t)
+            ^ (T_70_1542:reg8_t >> 1:reg32_t ^ T_70_1542:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t = false;
+R_ZF_13:reg1_t = T_32t3_1541:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t = 1:reg32_t == (1:reg32_t & T_32t3_1541:reg32_t >> 7:reg32_t);
+R_OF_15:reg1_t = false;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4202d0ec_1100:
+/*je     0x000000004202d160*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1544:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1545:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1546:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1547:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1548:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1543:reg1_t = cast(T_32t5_1548:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1543:reg1_t == false;
+label L_22_1100:
+label pc_0x4202d110_1109:
+/*mov    %cl,%al*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffffff00:reg32_t)
+  | (cast(0x2c:reg8_t)U:reg32_t & 0xff:reg32_t)
+;
+/*CL:0 Already initd input (1001, 0)*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_8t0_1549:reg8_t = cast(R_ECX_7:reg32_t)L:reg8_t;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffffff00:reg32_t) | cast(T_8t0_1549:reg8_t)U:reg32_t;
+label pc_0x4202d112_1110:
+/*sub    $0x30,%al*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*AL:0 Already initd input (1001, 0)*/
+
+EFLAGS_9:reg32_t = 0x282:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_8t0_1550:reg8_t = cast(R_EAX_5:reg32_t)L:reg8_t;
+T_8t2_1552:reg8_t = T_8t0_1550:reg8_t - 0x30:reg8_t;
+R_CC_OP_16:reg32_t = 4:reg32_t;
+T_32t3_1553:reg32_t = cast(T_8t0_1550:reg8_t)U:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t3_1553:reg32_t;
+R_CC_DEP2_18:reg32_t = 0x30:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_73_1555:reg32_t = T_32t3_1553:reg32_t - 0x30:reg32_t & 0xff:reg32_t;
+R_CF_10:reg1_t = T_32t3_1553:reg32_t < 0x30:reg32_t;
+T_74_1556:reg8_t = cast(T_73_1555:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_74_1556:reg8_t >> 7:reg32_t ^ T_74_1556:reg8_t >> 6:reg32_t)
+         ^ (T_74_1556:reg8_t >> 5:reg32_t ^ T_74_1556:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_74_1556:reg8_t >> 3:reg32_t ^ T_74_1556:reg8_t >> 2:reg32_t)
+            ^ (T_74_1556:reg8_t >> 1:reg32_t ^ T_74_1556:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_73_1555:reg32_t ^ (T_32t3_1553:reg32_t ^ 0x30:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_73_1555:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t = 1:reg32_t == (1:reg32_t & T_73_1555:reg32_t >> 7:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t3_1553:reg32_t ^ 0x30:reg32_t)
+             & (T_32t3_1553:reg32_t ^ T_73_1555:reg32_t))
+           >> 7:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffffff00:reg32_t) | cast(T_8t2_1552:reg8_t)U:reg32_t;
+label pc_0x4202d114_1111:
+/*cmp    $0x9,%al*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*AL:0 Already initd input (1001, 0)*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_8t0_1557:reg8_t = cast(R_EAX_5:reg32_t)L:reg8_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 4:reg32_t;
+T_32t3_1560:reg32_t = cast(T_8t0_1557:reg8_t)U:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t3_1560:reg32_t;
+R_CC_DEP2_18:reg32_t = 9:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_75_1562:reg32_t = T_32t3_1560:reg32_t - 9:reg32_t & 0xff:reg32_t;
+R_CF_10:reg1_t = T_32t3_1560:reg32_t < 9:reg32_t;
+T_76_1563:reg8_t = cast(T_75_1562:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_76_1563:reg8_t >> 7:reg32_t ^ T_76_1563:reg8_t >> 6:reg32_t)
+         ^ (T_76_1563:reg8_t >> 5:reg32_t ^ T_76_1563:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_76_1563:reg8_t >> 3:reg32_t ^ T_76_1563:reg8_t >> 2:reg32_t)
+            ^ (T_76_1563:reg8_t >> 1:reg32_t ^ T_76_1563:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == (0x10:reg32_t & (T_75_1562:reg32_t ^ (T_32t3_1560:reg32_t ^ 9:reg32_t)))
+;
+R_ZF_13:reg1_t = T_75_1562:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t = 1:reg32_t == (1:reg32_t & T_75_1562:reg32_t >> 7:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t3_1560:reg32_t ^ 9:reg32_t)
+             & (T_32t3_1560:reg32_t ^ T_75_1562:reg32_t))
+           >> 7:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4202d116_1112:
+/*ja     0x000000004202d245*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1565:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1566:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1567:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1568:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1569:reg32_t = cast(R_CF_10:reg1_t | R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1564:reg1_t = cast(T_32t5_1569:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1564:reg1_t == true;
+label pc_0x4202d11c_1113:
+/*mov    %al,%cl*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*CL:0 Already initd input (1001, 0)*/
+
+/*AL:0 Already initd input (1001, 0)*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_8t0_1570:reg8_t = cast(R_EAX_5:reg32_t)L:reg8_t;
+R_ECX_7:reg32_t =
+(R_ECX_7:reg32_t & 0xffffff00:reg32_t) | cast(T_8t0_1570:reg8_t)U:reg32_t;
+label pc_0x4202d11e_1114:
+/*movzbl %cl,%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*EAX:0 Already initd input (1001, 0)*/
+
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0xcc:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0x12:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffffff:reg32_t)
+  | (cast(0x42:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+/*CL:0 Already initd input (1001, 0)*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_8t1_1572:reg8_t = cast(R_ECX_7:reg32_t)L:reg8_t;
+T_32t0_1571:reg32_t = cast(T_8t1_1572:reg8_t)U:reg32_t;
+R_EAX_5:reg32_t = T_32t0_1571:reg32_t;
+label pc_0x4202d121_1115:
+/*cmp    0x10(%ebp),%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*EAX:0 Already initd input (1001, 0)*/
+
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+idx_1573:reg32_t = 0xbffff208:reg32_t;
+val_1574:reg32_t = 0xa:reg32_t;
+mem_arr_57[0xbffff208:reg32_t]:reg8_t =
+cast((val_1574:reg32_t & 0xff:reg32_t) >> 0:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff209:reg32_t]:reg8_t =
+cast((val_1574:reg32_t & 0xff00:reg32_t) >> 8:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff20a:reg32_t]:reg8_t =
+cast((val_1574:reg32_t & 0xff0000:reg32_t) >> 0x10:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff20b:reg32_t]:reg8_t =
+cast((val_1574:reg32_t & 0xff000000:reg32_t) >> 0x18:reg32_t)L:reg8_t;
+R_EBP_0:reg32_t = 0xbffff1f8:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t5_1580:reg32_t = R_EBP_0:reg32_t;
+T_32t4_1579:reg32_t = T_32t5_1580:reg32_t + 0x10:reg32_t;
+T_32t2_1577:reg32_t = R_EAX_5:reg32_t;
+T_32t1_1576:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff208:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff209:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff20a:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff20b:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 6:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1577:reg32_t;
+R_CC_DEP2_18:reg32_t = T_32t1_1576:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_77_1581:reg32_t = T_32t2_1577:reg32_t - T_32t1_1576:reg32_t;
+R_CF_10:reg1_t = T_32t2_1577:reg32_t < T_32t1_1576:reg32_t;
+T_78_1582:reg8_t = cast(T_77_1581:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_78_1582:reg8_t >> 7:reg32_t ^ T_78_1582:reg8_t >> 6:reg32_t)
+         ^ (T_78_1582:reg8_t >> 5:reg32_t ^ T_78_1582:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_78_1582:reg8_t >> 3:reg32_t ^ T_78_1582:reg8_t >> 2:reg32_t)
+            ^ (T_78_1582:reg8_t >> 1:reg32_t ^ T_78_1582:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_77_1581:reg32_t ^ (T_32t2_1577:reg32_t ^ T_32t1_1576:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_77_1581:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t =
+1:reg32_t == (1:reg32_t & T_77_1581:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t2_1577:reg32_t ^ T_32t1_1576:reg32_t)
+             & (T_32t2_1577:reg32_t ^ T_77_1581:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4202d124_1116:
+/*jge    0x000000004202d160*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1584:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1585:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1586:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1587:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1588:reg32_t = cast(R_SF_14:reg1_t ^ R_OF_15:reg1_t)U:reg32_t;
+T_1t0_1583:reg1_t = cast(T_32t5_1588:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1583:reg1_t == true;
+label pc_0x4202d144_1125:
+/*movzbl %cl,%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_EAX_5:reg32_t = 0xa:reg32_t;
+/*CL:0 Already initd input (1001, 0)*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_8t1_1590:reg8_t = cast(R_ECX_7:reg32_t)L:reg8_t;
+T_32t0_1589:reg32_t = cast(T_8t1_1590:reg8_t)U:reg32_t;
+R_EAX_5:reg32_t = T_32t0_1589:reg32_t;
+label pc_0x4202d147_1126:
+/*add    %eax,%edi*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_EDI_3:reg32_t = 0:reg32_t;
+/*EAX:0 Already initd input (1001, 0)*/
+
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffff00ff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 8:reg8_t & 0xff00:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xff00ffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x10:reg8_t & 0xff0000:reg32_t)
+;
+R_EAX_5:reg32_t =
+(R_EAX_5:reg32_t & 0xffffff:reg32_t)
+  | (cast(0:reg8_t)U:reg32_t << 0x18:reg8_t & 0xff000000:reg32_t)
+;
+EFLAGS_9:reg32_t = 0x293:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1593:reg32_t = R_EDI_3:reg32_t;
+T_32t1_1592:reg32_t = R_EAX_5:reg32_t;
+T_32t0_1591:reg32_t = T_32t2_1593:reg32_t + T_32t1_1592:reg32_t;
+R_CC_OP_16:reg32_t = 3:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1593:reg32_t;
+R_CC_DEP2_18:reg32_t = T_32t1_1592:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: add*/
+
+T_81_1594:reg32_t = T_32t2_1593:reg32_t + T_32t1_1592:reg32_t;
+R_CF_10:reg1_t = T_81_1594:reg32_t < T_32t2_1593:reg32_t;
+T_82_1595:reg8_t = cast(T_81_1594:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_82_1595:reg8_t >> 7:reg32_t ^ T_82_1595:reg8_t >> 6:reg32_t)
+         ^ (T_82_1595:reg8_t >> 5:reg32_t ^ T_82_1595:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_82_1595:reg8_t >> 3:reg32_t ^ T_82_1595:reg8_t >> 2:reg32_t)
+            ^ (T_82_1595:reg8_t >> 1:reg32_t ^ T_82_1595:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == 
+     (0x10:reg32_t
+        & (T_81_1594:reg32_t ^ (T_32t2_1593:reg32_t ^ T_32t1_1592:reg32_t)))
+     ;
+R_ZF_13:reg1_t = T_81_1594:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t =
+1:reg32_t == (1:reg32_t & T_81_1594:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          (
+           (T_32t2_1593:reg32_t
+              ^ (T_32t1_1592:reg32_t ^ 0xffffffffffffffff:reg32_t))
+            & (T_32t2_1593:reg32_t ^ T_81_1594:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+R_EDI_3:reg32_t = T_32t0_1591:reg32_t;
+label pc_0x4202d149_1127:
+/*mov    %edi,-0x58(%ebp)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+idx_1596:reg32_t = 0xbffff1a0:reg32_t;
+val_1597:reg32_t = 0:reg32_t;
+mem_arr_57[0xbffff1a0:reg32_t]:reg8_t =
+cast((val_1597:reg32_t & 0xff:reg32_t) >> 0:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff1a1:reg32_t]:reg8_t =
+cast((val_1597:reg32_t & 0xff00:reg32_t) >> 8:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff1a2:reg32_t]:reg8_t =
+cast((val_1597:reg32_t & 0xff0000:reg32_t) >> 0x10:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff1a3:reg32_t]:reg8_t =
+cast((val_1597:reg32_t & 0xff000000:reg32_t) >> 0x18:reg32_t)L:reg8_t;
+/*EDI:0 Already initd input (1001, 0)*/
+
+/*EDI:1 Already initd input (1001, 0)*/
+
+/*EDI:2 Already initd input (1001, 0)*/
+
+/*EDI:3 Already initd input (1001, 0)*/
+
+R_EBP_0:reg32_t = 0xbffff1f8:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1600:reg32_t = R_EBP_0:reg32_t;
+T_32t1_1599:reg32_t = T_32t2_1600:reg32_t + 0xffffffa8:reg32_t;
+T_32t3_1601:reg32_t = R_EDI_3:reg32_t;
+idx_1602:reg32_t = T_32t1_1599:reg32_t;
+val_1603:reg32_t = T_32t3_1601:reg32_t;
+mem_arr_57[0xbffff1a0:reg32_t]:reg8_t =
+cast((val_1603:reg32_t & 0xff:reg32_t) >> 0:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff1a1:reg32_t]:reg8_t =
+cast((val_1603:reg32_t & 0xff00:reg32_t) >> 8:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff1a2:reg32_t]:reg8_t =
+cast((val_1603:reg32_t & 0xff0000:reg32_t) >> 0x10:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff1a3:reg32_t]:reg8_t =
+cast((val_1603:reg32_t & 0xff000000:reg32_t) >> 0x18:reg32_t)L:reg8_t;
+label pc_0x4202d1d0_1149:
+/*mov    -0x58(%ebp),%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_EAX_5:reg32_t = 0xbffff211:reg32_t;
+/*mem[3221221792]:0 Already initd input (1001, 0)*/
+
+/*mem[3221221792]:1 Already initd input (1001, 0)*/
+
+/*mem[3221221792]:2 Already initd input (1001, 0)*/
+
+/*mem[3221221792]:3 Already initd input (1001, 0)*/
+
+R_EBP_0:reg32_t = 0xbffff1f8:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1606:reg32_t = R_EBP_0:reg32_t;
+T_32t1_1605:reg32_t = T_32t2_1606:reg32_t + 0xffffffa8:reg32_t;
+T_32t3_1607:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff1a0:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff1a1:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff1a2:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff1a3:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+R_EAX_5:reg32_t = T_32t3_1607:reg32_t;
+label pc_0x4202d1d3_1150:
+/*test   %eax,%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*EAX:0 Already initd input (1001, 0)*/
+
+/*EAX:1 Already initd input (1001, 0)*/
+
+/*EAX:2 Already initd input (1001, 0)*/
+
+/*EAX:3 Already initd input (1001, 0)*/
+
+/*EAX:0 Already initd input (1001, 0)*/
+
+/*EAX:1 Already initd input (1001, 0)*/
+
+/*EAX:2 Already initd input (1001, 0)*/
+
+/*EAX:3 Already initd input (1001, 0)*/
+
+EFLAGS_9:reg32_t = 0x246:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1610:reg32_t = R_EAX_5:reg32_t;
+R_CC_OP_16:reg32_t = 0xf:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1610:reg32_t;
+R_CC_DEP2_18:reg32_t = 0:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: logic*/
+
+R_CF_10:reg1_t = false;
+T_84_1611:reg8_t = cast(T_32t2_1610:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_84_1611:reg8_t >> 7:reg32_t ^ T_84_1611:reg8_t >> 6:reg32_t)
+         ^ (T_84_1611:reg8_t >> 5:reg32_t ^ T_84_1611:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_84_1611:reg8_t >> 3:reg32_t ^ T_84_1611:reg8_t >> 2:reg32_t)
+            ^ (T_84_1611:reg8_t >> 1:reg32_t ^ T_84_1611:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t = false;
+R_ZF_13:reg1_t = T_32t2_1610:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t =
+1:reg32_t == (1:reg32_t & T_32t2_1610:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t = false;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x4202d1d5_1151:
+/*jns    0x000000004202d17e*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1613:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1614:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1615:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1616:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1617:reg32_t = cast(R_SF_14:reg1_t)U:reg32_t;
+T_1t0_1612:reg1_t = cast(T_32t5_1617:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1612:reg1_t == false;
+label L_25_1151:
+label pc_0x4202d185_1155:
+/*mov    -0x58(%ebp),%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*EAX:0 Already initd input (1001, 0)*/
+
+/*EAX:1 Already initd input (1001, 0)*/
+
+/*EAX:2 Already initd input (1001, 0)*/
+
+/*EAX:3 Already initd input (1001, 0)*/
+
+/*mem[3221221792]:0 Already initd input (1001, 0)*/
+
+/*mem[3221221792]:1 Already initd input (1001, 0)*/
+
+/*mem[3221221792]:2 Already initd input (1001, 0)*/
+
+/*mem[3221221792]:3 Already initd input (1001, 0)*/
+
+R_EBP_0:reg32_t = 0xbffff1f8:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1620:reg32_t = R_EBP_0:reg32_t;
+T_32t1_1619:reg32_t = T_32t2_1620:reg32_t + 0xffffffa8:reg32_t;
+T_32t3_1621:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff1a0:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff1a1:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff1a2:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff1a3:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+R_EAX_5:reg32_t = T_32t3_1621:reg32_t;
+label pc_0x4202d18b_1157:
+/*neg    %eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*EAX:0 Already initd input (1001, 0)*/
+
+/*EAX:1 Already initd input (1001, 0)*/
+
+/*EAX:2 Already initd input (1001, 0)*/
+
+/*EAX:3 Already initd input (1001, 0)*/
+
+EFLAGS_9:reg32_t = 0x246:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1624:reg32_t = R_EAX_5:reg32_t;
+T_32t3_1625:reg32_t = 0:reg32_t - T_32t2_1624:reg32_t;
+R_CC_OP_16:reg32_t = 6:reg32_t;
+R_CC_DEP1_17:reg32_t = 0:reg32_t;
+R_CC_DEP2_18:reg32_t = T_32t2_1624:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_86_1626:reg32_t = 0:reg32_t - T_32t2_1624:reg32_t;
+R_CF_10:reg1_t = 0:reg32_t < T_32t2_1624:reg32_t;
+T_87_1627:reg8_t = cast(T_86_1626:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_87_1627:reg8_t >> 7:reg32_t ^ T_87_1627:reg8_t >> 6:reg32_t)
+         ^ (T_87_1627:reg8_t >> 5:reg32_t ^ T_87_1627:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_87_1627:reg8_t >> 3:reg32_t ^ T_87_1627:reg8_t >> 2:reg32_t)
+            ^ (T_87_1627:reg8_t >> 1:reg32_t ^ T_87_1627:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == (0x10:reg32_t & (T_86_1626:reg32_t ^ (0:reg32_t ^ T_32t2_1624:reg32_t)))
+;
+R_ZF_13:reg1_t = T_86_1626:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t =
+1:reg32_t == (1:reg32_t & T_86_1626:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((0:reg32_t ^ T_32t2_1624:reg32_t)
+             & (0:reg32_t ^ T_86_1626:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+R_EAX_5:reg32_t = T_32t3_1625:reg32_t;
+label pc_0x4202d18f_1159:
+/*cmove  -0x58(%ebp),%eax*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*EAX:0 Already initd input (1001, 0)*/
+
+/*EAX:1 Already initd input (1001, 0)*/
+
+/*EAX:2 Already initd input (1001, 0)*/
+
+/*EAX:3 Already initd input (1001, 0)*/
+
+/*mem[3221221792]:0 Already initd input (1001, 0)*/
+
+/*mem[3221221792]:1 Already initd input (1001, 0)*/
+
+/*mem[3221221792]:2 Already initd input (1001, 0)*/
+
+/*mem[3221221792]:3 Already initd input (1001, 0)*/
+
+R_EBP_0:reg32_t = 0xbffff1f8:reg32_t;
+EFLAGS_9:reg32_t = 0x242:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t4_1632:reg32_t = R_EBP_0:reg32_t;
+T_32t3_1631:reg32_t = T_32t4_1632:reg32_t + 0xffffffa8:reg32_t;
+T_32t0_1628:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff1a0:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff1a1:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff1a2:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff1a3:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+T_32t1_1629:reg32_t = R_EAX_5:reg32_t;
+T_32t8_1636:reg32_t = R_CC_OP_16:reg32_t;
+T_32t9_1637:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t10_1638:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t11_1639:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t12_1640:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t7_1635:reg1_t = cast(T_32t12_1640:reg32_t)L:reg1_t;
+T_8t6_1634:reg8_t = cast(T_1t7_1635:reg1_t)U:reg8_t;
+T_90_1642:reg32_t = cast(T_8t6_1634:reg8_t == 0:reg8_t)S:reg32_t;
+T_89_1641:reg32_t =
+(T_32t1_1629:reg32_t & T_90_1642:reg32_t)
+  | (T_32t0_1628:reg32_t & !T_90_1642:reg32_t)
+;
+T_32t5_1633:reg32_t = T_89_1641:reg32_t;
+R_EAX_5:reg32_t = T_32t5_1633:reg32_t;
+label pc_0x4202d193_1160:
+/*mov    %eax,-0x58(%ebp)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*mem[3221221792]:0 Already initd input (1001, 0)*/
+
+/*mem[3221221792]:1 Already initd input (1001, 0)*/
+
+/*mem[3221221792]:2 Already initd input (1001, 0)*/
+
+/*mem[3221221792]:3 Already initd input (1001, 0)*/
+
+/*EAX:0 Already initd input (1001, 0)*/
+
+/*EAX:1 Already initd input (1001, 0)*/
+
+/*EAX:2 Already initd input (1001, 0)*/
+
+/*EAX:3 Already initd input (1001, 0)*/
+
+R_EBP_0:reg32_t = 0xbffff1f8:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1645:reg32_t = R_EBP_0:reg32_t;
+T_32t1_1644:reg32_t = T_32t2_1645:reg32_t + 0xffffffa8:reg32_t;
+T_32t3_1646:reg32_t = R_EAX_5:reg32_t;
+idx_1647:reg32_t = T_32t1_1644:reg32_t;
+val_1648:reg32_t = T_32t3_1646:reg32_t;
+mem_arr_57[0xbffff1a0:reg32_t]:reg8_t =
+cast((val_1648:reg32_t & 0xff:reg32_t) >> 0:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff1a1:reg32_t]:reg8_t =
+cast((val_1648:reg32_t & 0xff00:reg32_t) >> 8:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff1a2:reg32_t]:reg8_t =
+cast((val_1648:reg32_t & 0xff0000:reg32_t) >> 0x10:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff1a3:reg32_t]:reg8_t =
+cast((val_1648:reg32_t & 0xff000000:reg32_t) >> 0x18:reg32_t)L:reg8_t;
+label pc_0x4205ca28_1168:
+/*mov    %eax,-0xd0(%ebp)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+idx_1649:reg32_t = 0xbffff678:reg32_t;
+val_1650:reg32_t = 0x42003190:reg32_t;
+mem_arr_57[0xbffff678:reg32_t]:reg8_t =
+cast((val_1650:reg32_t & 0xff:reg32_t) >> 0:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff679:reg32_t]:reg8_t =
+cast((val_1650:reg32_t & 0xff00:reg32_t) >> 8:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff67a:reg32_t]:reg8_t =
+cast((val_1650:reg32_t & 0xff0000:reg32_t) >> 0x10:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff67b:reg32_t]:reg8_t =
+cast((val_1650:reg32_t & 0xff000000:reg32_t) >> 0x18:reg32_t)L:reg8_t;
+/*EAX:0 Already initd input (1001, 0)*/
+
+/*EAX:1 Already initd input (1001, 0)*/
+
+/*EAX:2 Already initd input (1001, 0)*/
+
+/*EAX:3 Already initd input (1001, 0)*/
+
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1653:reg32_t = R_EBP_0:reg32_t;
+T_32t1_1652:reg32_t = T_32t2_1653:reg32_t + 0xffffff30:reg32_t;
+T_32t3_1654:reg32_t = R_EAX_5:reg32_t;
+idx_1655:reg32_t = T_32t1_1652:reg32_t;
+val_1656:reg32_t = T_32t3_1654:reg32_t;
+mem_arr_57[0xbffff678:reg32_t]:reg8_t =
+cast((val_1656:reg32_t & 0xff:reg32_t) >> 0:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff679:reg32_t]:reg8_t =
+cast((val_1656:reg32_t & 0xff00:reg32_t) >> 8:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff67a:reg32_t]:reg8_t =
+cast((val_1656:reg32_t & 0xff0000:reg32_t) >> 0x10:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff67b:reg32_t]:reg8_t =
+cast((val_1656:reg32_t & 0xff000000:reg32_t) >> 0x18:reg32_t)L:reg8_t;
+label pc_0x4205c858_1192:
+/*mov    -0xd0(%ebp),%edx*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_EDX_8:reg32_t = 1:reg32_t;
+/*mem[3221223032]:0 Already initd input (1001, 0)*/
+
+/*mem[3221223032]:1 Already initd input (1001, 0)*/
+
+/*mem[3221223032]:2 Already initd input (1001, 0)*/
+
+/*mem[3221223032]:3 Already initd input (1001, 0)*/
+
+R_EBP_0:reg32_t = 0xbffff748:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t2_1659:reg32_t = R_EBP_0:reg32_t;
+T_32t1_1658:reg32_t = T_32t2_1659:reg32_t + 0xffffff30:reg32_t;
+T_32t3_1660:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff678:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff679:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff67a:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff67b:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+R_EDX_8:reg32_t = T_32t3_1660:reg32_t;
+label pc_0x4205c85e_1193:
+/*mov    %edx,(%eax)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+idx_1661:reg32_t = 0xbffff784:reg32_t;
+val_1662:reg32_t = 0x8049604:reg32_t;
+mem_arr_57[0xbffff784:reg32_t]:reg8_t =
+cast((val_1662:reg32_t & 0xff:reg32_t) >> 0:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff785:reg32_t]:reg8_t =
+cast((val_1662:reg32_t & 0xff00:reg32_t) >> 8:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff786:reg32_t]:reg8_t =
+cast((val_1662:reg32_t & 0xff0000:reg32_t) >> 0x10:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff787:reg32_t]:reg8_t =
+cast((val_1662:reg32_t & 0xff000000:reg32_t) >> 0x18:reg32_t)L:reg8_t;
+/*EDX:0 Already initd input (1001, 0)*/
+
+/*EDX:1 Already initd input (1001, 0)*/
+
+/*EDX:2 Already initd input (1001, 0)*/
+
+/*EDX:3 Already initd input (1001, 0)*/
+
+R_EAX_5:reg32_t = 0xbffff784:reg32_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t0_1663:reg32_t = R_EAX_5:reg32_t;
+T_32t1_1664:reg32_t = R_EDX_8:reg32_t;
+idx_1665:reg32_t = T_32t0_1663:reg32_t;
+val_1666:reg32_t = T_32t1_1664:reg32_t;
+mem_arr_57[0xbffff784:reg32_t]:reg8_t =
+cast((val_1666:reg32_t & 0xff:reg32_t) >> 0:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff785:reg32_t]:reg8_t =
+cast((val_1666:reg32_t & 0xff00:reg32_t) >> 8:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff786:reg32_t]:reg8_t =
+cast((val_1666:reg32_t & 0xff0000:reg32_t) >> 0x10:reg32_t)L:reg8_t;
+mem_arr_57[0xbffff787:reg32_t]:reg8_t =
+cast((val_1666:reg32_t & 0xff000000:reg32_t) >> 0x18:reg32_t)L:reg8_t;
+label pc_0x804845a_1236:
+/*cmpl   $0x5,-0x4(%ebp)*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+/*mem[3221223300]:0 Already initd input (1001, 0)*/
+
+/*mem[3221223300]:1 Already initd input (1001, 0)*/
+
+/*mem[3221223300]:2 Already initd input (1001, 0)*/
+
+/*mem[3221223300]:3 Already initd input (1001, 0)*/
+
+R_EBP_0:reg32_t = 0xbffff788:reg32_t;
+EFLAGS_9:reg32_t = 0x46:reg32_t;
+R_CF_10:reg1_t = cast(EFLAGS_9:reg32_t >> 0:reg32_t)L:reg1_t;
+R_PF_11:reg1_t = cast(EFLAGS_9:reg32_t >> 2:reg32_t)L:reg1_t;
+R_AF_12:reg1_t = cast(EFLAGS_9:reg32_t >> 4:reg32_t)L:reg1_t;
+R_ZF_13:reg1_t = cast(EFLAGS_9:reg32_t >> 6:reg32_t)L:reg1_t;
+R_SF_14:reg1_t = cast(EFLAGS_9:reg32_t >> 7:reg32_t)L:reg1_t;
+R_OF_15:reg1_t = cast(EFLAGS_9:reg32_t >> 0xb:reg32_t)L:reg1_t;
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t5_1672:reg32_t = R_EBP_0:reg32_t;
+T_32t4_1671:reg32_t = T_32t5_1672:reg32_t + 0xfffffffc:reg32_t;
+T_32t2_1669:reg32_t =
+(
+ (cast(mem_arr_57[0xbffff784:reg32_t]:reg8_t)U:reg32_t << 0:reg32_t
+    | cast(mem_arr_57[0xbffff785:reg32_t]:reg8_t)U:reg32_t << 8:reg32_t)
+  | cast(mem_arr_57[0xbffff786:reg32_t]:reg8_t)U:reg32_t << 0x10:reg32_t)
+ | cast(mem_arr_57[0xbffff787:reg32_t]:reg8_t)U:reg32_t << 0x18:reg32_t;
+/*NoOp*/
+
+R_CC_OP_16:reg32_t = 6:reg32_t;
+R_CC_DEP1_17:reg32_t = T_32t2_1669:reg32_t;
+R_CC_DEP2_18:reg32_t = 5:reg32_t;
+R_CC_NDEP_19:reg32_t = 0:reg32_t;
+/*eflags thunk: sub*/
+
+T_91_1673:reg32_t = T_32t2_1669:reg32_t - 5:reg32_t;
+R_CF_10:reg1_t = T_32t2_1669:reg32_t < 5:reg32_t;
+T_92_1674:reg8_t = cast(T_91_1673:reg32_t)L:reg8_t;
+R_PF_11:reg1_t =
+!cast(
+      ((T_92_1674:reg8_t >> 7:reg32_t ^ T_92_1674:reg8_t >> 6:reg32_t)
+         ^ (T_92_1674:reg8_t >> 5:reg32_t ^ T_92_1674:reg8_t >> 4:reg32_t))
+       ^ 
+         ((T_92_1674:reg8_t >> 3:reg32_t ^ T_92_1674:reg8_t >> 2:reg32_t)
+            ^ (T_92_1674:reg8_t >> 1:reg32_t ^ T_92_1674:reg8_t))
+         )L:reg1_t;
+R_AF_12:reg1_t =
+1:reg32_t
+  == (0x10:reg32_t & (T_91_1673:reg32_t ^ (T_32t2_1669:reg32_t ^ 5:reg32_t)))
+;
+R_ZF_13:reg1_t = T_91_1673:reg32_t == 0:reg32_t;
+R_SF_14:reg1_t =
+1:reg32_t == (1:reg32_t & T_91_1673:reg32_t >> 0x1f:reg32_t);
+R_OF_15:reg1_t =
+1:reg32_t
+  == 
+     (1:reg32_t
+        & 
+          ((T_32t2_1669:reg32_t ^ 5:reg32_t)
+             & (T_32t2_1669:reg32_t ^ T_91_1673:reg32_t))
+           >> 0x1f:reg32_t)
+     ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t & (0xfffffffffffffffe:reg32_t & 0xfffffffffffffffb:reg32_t))
+  & 
+    (
+     (0xffffffffffffffef:reg32_t
+        & (0xffffffffffffffbf:reg32_t & 0xffffffffffffff7f:reg32_t))
+      & 0xfffffffffffff7ff:reg32_t)
+    ;
+EFLAGS_9:reg32_t =
+(EFLAGS_9:reg32_t
+   | 
+     (cast(R_CF_10:reg1_t)U:reg32_t << 0:reg32_t
+        | cast(R_PF_11:reg1_t)U:reg32_t << 2:reg32_t)
+     )
+ | 
+   (
+    (cast(R_AF_12:reg1_t)U:reg32_t << 4:reg32_t
+       | 
+         (cast(R_ZF_13:reg1_t)U:reg32_t << 6:reg32_t
+            | cast(R_SF_14:reg1_t)U:reg32_t << 7:reg32_t)
+         )
+     | cast(R_OF_15:reg1_t)U:reg32_t << 0xb:reg32_t)
+   ;
+label pc_0x804845e_1237:
+/*je     0x0000000008048470*/
+
+/*Filter IRs:*/
+
+/*Initializers*/
+
+R_GDT_25:reg32_t = 0xc02dbd80:reg32_t;
+R_LDT_24:reg32_t = 0xc02dcc58:reg32_t;
+R_DFLAG_20:reg32_t = 1:reg32_t;
+/*ASM IR:*/
+
+T_32t1_1676:reg32_t = R_CC_OP_16:reg32_t;
+T_32t2_1677:reg32_t = R_CC_DEP1_17:reg32_t;
+T_32t3_1678:reg32_t = R_CC_DEP2_18:reg32_t;
+T_32t4_1679:reg32_t = R_CC_NDEP_19:reg32_t;
+T_32t5_1680:reg32_t = cast(R_ZF_13:reg1_t)U:reg32_t;
+T_1t0_1675:reg1_t = cast(T_32t5_1680:reg32_t)L:reg1_t;
+post_1045:reg1_t = post_1045:reg1_t & T_1t0_1675:reg1_t == true;
+
